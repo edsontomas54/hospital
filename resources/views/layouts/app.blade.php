@@ -8,7 +8,11 @@
     @livewireStyles
 </head>
 <body>
-    <a href="/admin/login">click to dashboard</a>
+    <a href="/admin/login">login</a>
+
+    <br>
+
+    <a href="/admin/dashboard">click to dashboard</a>
 
     <h1>Hei im Laravel</h1>
 

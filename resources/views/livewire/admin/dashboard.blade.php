@@ -481,7 +481,8 @@
                             </div>
                             <div class="flex-grow-1">
                               <span class="fw-medium d-block">{{$user !=null ? $user->name : "no logged"}}</span>
-                              <small class="text-muted">{{$user->role !=null ? $user->name : "no user logged"}}</small>
+                              <small class="text-muted">{{$user->role !=null ? $user->role : "no user logged"}}
+                                {{$user->is_admin ===1 ? "ADMIN" : ""}}</small>
                             </div>
                           </div>
                         </a>

@@ -1,0 +1,65 @@
+
+
+======================Step 1: Create the Middleware
+First, create a middleware using the artisan command:
+
+php artisan make:middleware IsAdmin
+Step 2: Implement Middleware Logic
+Open the generated middleware file located at app/Http/Middleware/IsAdmin.php and add the logic to check if the user is an admin:
+
+
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class IsAdmin
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle(Request $request, Closure $next)
+    {
+        if (Auth::check() && Auth::user()->is_admin) {
+            return $next($request);
+        }
+
+        return redirect('/'); // Redirect to homepage or any other page
+    }
+}
+Step 3: Register Middleware
+Register the middleware in app/Http/Kernel.php by adding it to the $routeMiddleware array:
+
+
+protected $routeMiddleware = [
+    // Other middleware
+    'is_admin' => \App\Http\Middleware\IsAdmin::class,
+];
+Step 4: Apply Middleware to Routes
+Use the middleware in your routes file to protect the admin routes. Typically, you would do this in routes/web.php:
+
+
+use App\Http\Middleware\IsAdmin;
+
+Route::middleware(['is_admin'])->group(function () {
+    Route::get('/admin/dashboard', Dashboard::class)->name('admin.dashboard');
+    Route::get('/admin/register', AdminRegisterUser::class)->name('admin.register');
+    Route::get('/admin/login', AdminLoginUser::class)->name('admin.login');
+});
+Step 5: Ensure Auth Middleware is Applied
+Make sure that the auth middleware is also applied so that the user is authenticated before the is_admin check. You can do this by chaining the middleware:
+
+
+Route::middleware(['auth', 'is_admin'])->group(function () {
+    Route::get('/admin/dashboard', Dashboard::class)->name('admin.dashboard');
+    Route::get('/admin/register', AdminRegisterUser::class)->name('admin.register');
+    Route::get('/admin/login', AdminLoginUser::class)->name('admin.login');
+});
+Now, only users with the is_admin attribute set to true will be able to access the specified admin routes. Non-admin users will be redirected to the homepage or another specified route.

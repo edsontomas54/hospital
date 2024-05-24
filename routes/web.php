@@ -20,8 +20,10 @@ Route::get('/', function () {
     return view('layouts.app');
 });
 
-Route::get('/admin/dashboard', Dashboard::class)->name('admin.dashboard');
 
-Route::get('/admin/register', AdminRegisterUser::class)->name('admin.register');
+Route::middleware(["auth",'is_admin'])->group(function (){
+    Route::get('/admin/dashboard', Dashboard::class)->name('admin.dashboard');
+    Route::get('/admin/register', AdminRegisterUser::class)->name('admin.register');
+});
 
 Route::get('/admin/login', AdminLoginUser::class)->name('admin.login');
