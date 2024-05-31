@@ -163,8 +163,14 @@ class AdminRegisterUser extends Component
     public function render()
     {
         $roles=[];
+        if(Auth::check()){
+            
         if(Auth()->user()->role=="NURSE"){
             $roles = [RoleEnum::PATIENT];
+        }else{
+            $roles = RoleEnum::getValues();
+        }
+
         }else{
             $roles = RoleEnum::getValues();
         }
