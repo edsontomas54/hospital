@@ -5,16 +5,20 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Medilab Bootstrap Template - Index</title>
+  <title>Centro de Saúde São Dâmaso</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('assets2/img/favicon.png')}}" rel="icon">
-  <link href="{{'assets2/img/apple-touch-icon.png'}}" rel="apple-touch-icon">
-
+  <link href="{{ asset('assets/img/favicon/Emblem_of_Mozambique__1982-1990_.svg.ico') }}" rel="icon" type="image/x-icon">
+  <link href="{{ asset('assets/img/favicon/Emblem_of_Mozambique__1982-1990_.svg.ico') }}" rel="apple-touch-icon">
+  
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"> --}}
+
+  <link
+  href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+  rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
   <link href="{{'assets2/vendor/fontawesome-free/css/all.min.css'}}" rel="stylesheet">
@@ -41,40 +45,35 @@
 <body>
 
   <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-flex align-items-center fixed-top">
-    <div class="container d-flex justify-content-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">contact@example.com</a>
-        <i class="bi bi-phone"></i> +1 5589 55488 55
-      </div>
-      <div class="d-none d-lg-flex social-links align-items-center">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
-      </div>
+  <div id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center">
+        <div class="contact-info d-flex align-items-center">
+            <a class="bi bi-envelope me-2" href="mailto:info.geral@misau.com"> info.geral@misau.com</a>
+            <a class="bi bi-phone me-2" href="tel:+258840936000"> +258 840 936 000</a>
+            <a class="bi bi-geo-alt me-2" href="https://maps.app.goo.gl/QBy7GRywCmA6kBc48"> Matola, Patrice Lumumba, São Dâmaso</a>
+        </div>
     </div>
-  </div>
+</div>
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-
-      <h1 class="logo me-auto"><a href="index.html">Medilab</a></h1>
+{{-- 
+      <h1 class="logo me-auto"><a href="index.html">Medilab</a></h1> --}}
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <a href="#" class="logo me-auto">
+        <img src="assets/img/fotos/Emblem_of_Mozambique_(1982-1990).svg.png" alt="Emblem of Mozambique" class="img-fluid">
+    </a>
+    
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#departments">Departments</a></li>
-          <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
-          <li><a class="nav-link scrollto" href="{{route('admin.login')}}">Login</a></li>
-          <li><a class="nav-link scrollto" href="{{route('admin.dashboard')}}">Dashboard</a></li>
+      <nav id="navbar" class="navbar  order-last order-lg-0">
+        <ul >
+          <li><a class="nav-link scrollto active" href="#hero">Início</a></li>
+          <li><a class="nav-link scrollto" href="{{route('admin.login')}}">Entrar</a></li>
+          {{-- <li><a class="nav-link scrollto" href="{{route('admin.dashboard')}}">Dashboard</a></li> --}}
 
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -85,18 +84,18 @@
                   <li><a href="#">Deep Drop Down 4</a></li>
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
+              </li> --}}
+              {{-- <li><a href="#">Drop Down 2</a></li>
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            </ul> --}}
+          {{-- </li> --}}
+          <li><a class="nav-link scrollto" href="#contact">Contacte-nos</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
+      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Marcar consulta</a>
 
     </div>
   </header><!-- End Header -->
@@ -104,13 +103,14 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
-      <h1>Welcome to Medilab</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+      <h1 class="">centro de saúde são dâmaso</h1>
+      <h4>Conectados, zelando pela saúde da comunidade e evitamos filas.</h4>
+      <a href="#appointment" class="btn-get-started scrollto">Marcar consulta</a>
     </div>
   </section><!-- End Hero -->
 
   <main id="main">
+
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
@@ -119,13 +119,13 @@
         <div class="row">
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="content">
-              <h3>Why Choose Medilab?</h3>
+              <h3>Cuidados de saúde para todos</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                O Centro de Saúde São Dâmaso acolhe a marcação de consultas do tipo marcação espontâneo, por horário e urgente. <br>
+                Para os seguintes gabinetes: <b>Obstetrícia, Odontologia, Psicologia e Clínica Geral.</b>
               </p>
               <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                <a href="#" class="more-btn">Marcar consulta</a>
               </div>
             </div>
           </div>
@@ -135,22 +135,22 @@
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-receipt"></i>
-                    <h4>Corporis voluptates sit</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                    <h4>Consulta de pré-marcação por horário</h4>
+                    <p class="estilo2">Para concultas pré-natais e de doenças crônicas o paciente pode propor o horário da consulta, evitando filas de atendimento.</p>
                   </div>
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                    <i class="bx bx-receipt"></i>
+                    <h4>Consulta de marcação urgente</h4>
+                    <p class="estilo2">As consultas de marcação urgente tem prioridade o paciente recebe a assistência necessária prontamente.</p>
                   </div>
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Labore consequatur</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                    <i class="bx bx-receipt"></i>
+                    <h4>Consulta de marcação espontânea</h4>
+                    <p class="estilo2">Evitando filas de espera, marque a sua consulta e descubra a sua hora de atendimento antecedência.</p>
                   </div>
                 </div>
               </div>
@@ -161,7 +161,7 @@
       </div>
     </section><!-- End Why Us Section -->
 
-    <!-- ======= About Section ======= -->
+    {{-- <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container-fluid">
 
@@ -196,9 +196,9 @@
         </div>
 
       </div>
-    </section><!-- End About Section -->
+    </section><!-- End About Section --> --}}
 
-    <!-- ======= Counts Section ======= -->
+    {{-- <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
       <div class="container">
 
@@ -239,65 +239,66 @@
         </div>
 
       </div>
-    </section><!-- End Counts Section -->
+    </section><!-- End Counts Section --> --}}
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
       <div class="container">
 
         <div class="section-title">
-          <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Procedimento de marcação de consultas médicas</h2>
+          
         </div>
 
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="icon-box">
-              <div class="icon"><i class="fas fa-heartbeat"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <div class="icon"><i class="fas fa-hospital-user"></i></div>
+              <h4><a href="">1. Requisitar a consulta</a></h4>
+              <p class="estilo">Para solicitar a consulta deve preencher seus dados pessoais, tipo de consulta e especialidade.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="icon-box">
-              <div class="icon"><i class="fas fa-pills"></i></div>
-              <h4><a href="">Sed ut perspiciatis</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <div class="icon"><i class="fas fa-heartbeat"></i></div>
+              <h4><a href="">2. Acompanhar estado da requição</a></h4>
+              <p class="estilo">Iniciar sessão no sistema com email e senha para acompanhar o estado da consulta. </p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="icon-box">
-              <div class="icon"><i class="fas fa-hospital-user"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <div class="icon"><i class="fas fa-notes-medical"></i></div>
+              <h4><a href="">3. Apresentar senha de atendimento </a></h4>
+              <p class="estilo">Depois de verificar a aprovação da consulta, no sistema ou no emil, receberá confirmação da marcação, onde encontrará sua senha de atendimento.  
+                Apresentar a senha de atendimento a secretaria do Centro de Saúde São Dâmaso. </p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+          {{-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-dna"></i></div>
               <h4><a href="">Nemo Enim</a></h4>
               <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
             </div>
-          </div>
+          </div> --}}
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+          {{-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-wheelchair"></i></div>
               <h4><a href="">Dele cardo</a></h4>
               <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
             </div>
-          </div>
+          </div> --}}
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+          {{-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-notes-medical"></i></div>
               <h4><a href="">Divera don</a></h4>
               <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
             </div>
-          </div>
+          </div> --}}
 
         </div>
 
@@ -309,8 +310,8 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Make an Appointment</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Formulário de Marcação de consulta </h2>
+          
         </div>
 
         <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
@@ -362,12 +363,12 @@
             <div class="error-message"></div>
             <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
           </div>
-          <div class="text-center"><button type="submit">Make an Appointment</button></div>
+          <div class="text-center"><button type="submit">Marcar Consulta</button></div>
         </form>
 
       </div>
     </section><!-- End Appointment Section -->
-
+{{-- 
     <!-- ======= Departments Section ======= -->
     <section id="departments" class="departments">
       <div class="container">
@@ -782,9 +783,9 @@
 
       </div>
     </section><!-- End Gallery Section -->
-
+ --}}
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
+    {{-- <section id="contact" class="contact">
       <div class="container">
 
         <div class="section-title">
@@ -854,14 +855,14 @@
         </div>
 
       </div>
-    </section><!-- End Contact Section -->
+    </section><!-- End Contact Section --> --}}
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
-    <div class="footer-top">
+    {{-- <div class="footer-top">
       <div class="container">
         <div class="row">
 
@@ -909,28 +910,18 @@
         </div>
       </div>
     </div>
-
+--}}
     <div class="container d-md-flex py-4">
 
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
-          &copy; Copyright <strong><span>Medilab</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>Harrison Leonildo Rogério Munguambe</span></strong>.Trabalho final de licenciatura: Desenvolvimento de um sistema para optimização do atendimento médico e das filas hospitalares através de algoritmos de escalonamento.
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            
         </div>
-      </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
+      </div> 
+      
     </div>
   </footer><!-- End Footer -->
 

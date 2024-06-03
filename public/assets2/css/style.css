@@ -208,6 +208,7 @@ h6 {
   display: inline-block;
 }
 
+
 .appointment-btn:hover {
   background: #166ab5;
   color: #fff;
@@ -1751,3 +1752,8 @@ section {
   color: #fff;
   text-decoration: none;
 }
+
+.estilo{
+  font-size: 1.1em !important;
+}
+
