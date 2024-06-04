@@ -12,7 +12,7 @@
   <!-- Favicons -->
   <link href="{{ asset('assets/img/favicon/Emblem_of_Mozambique__1982-1990_.svg.ico') }}" rel="icon" type="image/x-icon">
   <link href="{{ asset('assets/img/favicon/Emblem_of_Mozambique__1982-1990_.svg.ico') }}" rel="apple-touch-icon">
-  
+
   <!-- Google Fonts -->
   {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"> --}}
 
@@ -40,6 +40,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  @livewireStyles
 </head>
 
 <body>
@@ -59,13 +60,13 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-{{-- 
+{{--
       <h1 class="logo me-auto"><a href="index.html">Medilab</a></h1> --}}
       <!-- Uncomment below if you prefer to use an image logo -->
       <a href="#" class="logo me-auto">
         <img src="assets/img/fotos/Emblem_of_Mozambique_(1982-1990).svg.png" alt="Emblem of Mozambique" class="img-fluid">
     </a>
-    
+
 
       <nav id="navbar" class="navbar  order-last order-lg-0">
         <ul >
@@ -247,7 +248,7 @@
 
         <div class="section-title">
           <h2>Procedimento de marcação de consultas médicas</h2>
-          
+
         </div>
 
         <div class="row">
@@ -271,7 +272,7 @@
             <div class="icon-box">
               <div class="icon"><i class="fas fa-notes-medical"></i></div>
               <h4><a href="">3. Apresentar senha de atendimento </a></h4>
-              <p class="estilo">Depois de verificar a aprovação da consulta, no sistema ou no emil, receberá confirmação da marcação, onde encontrará sua senha de atendimento.  
+               <p class="estilo">Depois de verificar a aprovação da consulta, no sistema ou no emil, receberá confirmação da marcação, onde encontrará sua senha de atendimento.
                 Apresentar a senha de atendimento a secretaria do Centro de Saúde São Dâmaso. </p>
             </div>
           </div>
@@ -306,69 +307,12 @@
     </section><!-- End Services Section -->
 
     <!-- ======= Appointment Section ======= -->
-    <section id="appointment" class="appointment section-bg">
-      <div class="container">
+    @if (Auth()->user()->role=='PATIENT')
+    @livewire('make-appoiment.make-appoiment')
+    @endif
+    <!-- End Appointment Section -->
 
-        <div class="section-title">
-          <h2>Formulário de Marcação de consulta </h2>
-          
-        </div>
-
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
-          <div class="row">
-            <div class="col-md-4 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 form-group mt-3">
-              <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <select name="department" id="department" class="form-select">
-                <option value="">Select Department</option>
-                <option value="Department 1">Department 1</option>
-                <option value="Department 2">Department 2</option>
-                <option value="Department 3">Department 3</option>
-              </select>
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <select name="doctor" id="doctor" class="form-select">
-                <option value="">Select Doctor</option>
-                <option value="Doctor 1">Doctor 1</option>
-                <option value="Doctor 2">Doctor 2</option>
-                <option value="Doctor 3">Doctor 3</option>
-              </select>
-              <div class="validate"></div>
-            </div>
-          </div>
-
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-            <div class="validate"></div>
-          </div>
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Marcar Consulta</button></div>
-        </form>
-
-      </div>
-    </section><!-- End Appointment Section -->
-{{-- 
+{{--
     <!-- ======= Departments Section ======= -->
     <section id="departments" class="departments">
       <div class="container">
@@ -918,10 +862,10 @@
           &copy; Copyright <strong><span>Harrison Leonildo Rogério Munguambe</span></strong>.Trabalho final de licenciatura: Desenvolvimento de um sistema para optimização do atendimento médico e das filas hospitalares através de algoritmos de escalonamento.
         </div>
         <div class="credits">
-            
+
         </div>
-      </div> 
-      
+      </div>
+
     </div>
   </footer><!-- End Footer -->
 
@@ -937,7 +881,32 @@
 
   <!-- Template Main JS File -->
   <script src="{{'assets2/js/main.js'}}"></script>
+  @livewireScripts
 
+  <script>
+
+    document.getElementById('gender').addEventListener('change', function () {
+      var gender = this.value;
+      var specialtyOptions = document.querySelectorAll('#specialty option.female-only');
+
+      if(gender!=""){
+          if (gender === 'female') {
+            specialtyOptions.forEach(function(option) {
+              option.disabled = false;
+            });
+          } else {
+            specialtyOptions.forEach(function(option) {
+              option.disabled = true;
+            });
+          }
+      }else{
+        specialtyOptions.forEach(function(option) {
+            option.disabled = true;
+        });
+      }
+
+    });
+  </script>
 </body>
 
 </html>
