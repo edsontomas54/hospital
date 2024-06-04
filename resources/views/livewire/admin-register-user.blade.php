@@ -1,4 +1,10 @@
 <div>
+    @php
+    use App\Enums\RoleEnum;
+    use App\Enums\BloodTypeEnum;
+    use App\Enums\DoctorSpecialtyEnum;
+    use App\Enums\NurseSpecialtyEnum;
+    @endphp
     <div class="container-xxl">
         <div class="authentication-wrapper authentication-basic container-p-y">
           <div class="authentication-inner">
@@ -65,6 +71,16 @@
                 <p class="mb-4">Make your app management easy and fun!</p>
 
                 <form id="formAuthentication" class="mb-3" wire:submit.prevent='register'>
+                    {{-- General Inputs  --}}
+                <div class="mb-3">
+                  <label class="form-label" for="roleType">Role Type</label>
+                  <select id="roleType" class="form-control form-select" wire:model='role' onchange="handleRoleChange()">
+                      <option value="">=====Select the role type</option>
+                      @foreach ($roles as $role)
+                      <option value="{{ RoleEnum::getKey($role) }}">{{$role}}</option>
+                      @endforeach
+                  </select>
+                </div>
                   <div class="mb-3">
                     <label for="name" class="form-label">Nome</label>
                     <input
@@ -76,6 +92,41 @@
                       autofocus
                       wire:model='name'
                       />
+                  </div>
+                  <div class="mb-3">
+                    <label for="birthDay" class="form-label">Data de nascimento</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="birthDay"
+                      name="birthDay"
+                      autofocus
+                      wire:model='birthDay'
+                      />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="gender">Gender</label>
+                    <select id="gender" class="form-control form-select" wire:model='gender'>
+                        <option value="">=====Select the Gender</option>
+                        <option >Male</option>
+                        <option >Female</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="bI" class="form-label">Número de BI</label>
+                    <input wire:model='bI' type="number" class="form-control" id="bI" name="bI" placeholder="Número de BI" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="address" class="form-label">address</label>
+                    <input wire:model='address' type="text" class="form-control" id="address" name="address" placeholder="Enter your address" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="phone" class="form-label">phone</label>
+                    <input wire:model='phone' type="text" class="form-control" id="phone" name="phone" placeholder="Enter your phone" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="emergencyContact" class="form-label">emergencyContact</label>
+                    <input wire:model='emergencyContact' type="text" class="form-control" id="emergencyContact" name="emergencyContact" placeholder="Enter your emergencyContact" />
                   </div>
                   <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -111,20 +162,55 @@
                       <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                     </div>
                   </div>
-                  @php
-                      use App\Enums\RoleEnum;
+                {{-- General Inputs  --}}
 
-                      $roles = RoleEnum::getValues();
-                  @endphp
-                  <div class="mb-3">
-                    <label class="form-label" for="roleType">Role Type</label>
-                    <select id="roleType" class="form-control form-select" wire:model='role'>
-                        <option value="">=====Select the role type</option>
-                        @foreach ($roles as $role)
-                        <option value="{{ RoleEnum::getKey($role) }}">{{$role}}</option>
-                        @endforeach
-                    </select>
-                  </div>
+                {{-- PATIENT --}}
+                <div id="patientFields">
+                    <div class="mb-3">
+                        <label for="allergies" class="form-label">Allergies</label>
+                        <input wire:model='allergies' type="text" class="form-control" id="allergies" name="allergies" placeholder="Enter your allergies" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="medicines" class="form-label">Medicines</label>
+                        <input wire:model='medicines' type="text" class="form-control" id="medicines" name="medicines" placeholder="Enter your medicines" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="bloodType">Blood Type</label>
+                        <select id="bloodType" class="form-control form-select" wire:model='bloodType'>
+                            <option value="">=====Select the Blood Type======</option>
+                            @foreach ($bloodTypes as $bType)
+                            <option value="{{ BloodTypeEnum::getKey($bType) }}">{{$bType}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                {{-- PATIENT --}}
+                {{-- DOCTOR --}}
+                <div id="doctorFields" style="display: none;">
+                    <div class="mb-3">
+                        <label class="form-label" for="specialty">Doctor specialty</label>
+                        <select id="specialty" class="form-control form-select" wire:model='specialty'>
+                            <option value="">=====Select the Specialties======</option>
+                            @foreach ($specialties as $spec)
+                            <option value="{{ $spec}}">{{$spec}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                {{-- DOCTOR --}}
+                {{-- NURSE --}}
+                <div id="nurseFields" style="display: none;">
+                    <div class="mb-3">
+                        <label class="form-label" for="nurse">Nurse Specialties</label>
+                        <select id="nurse" class="form-control form-select" wire:model='nurse'>
+                            <option value="">=====Select the Specialties======</option>
+                            @foreach($nurseSpecialties as $specialty)
+                            <option value="{{ $specialty }}">{{ $specialty }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                {{-- NURSE --}}
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign up</button>
                 </form>
 
@@ -140,4 +226,32 @@
           </div>
         </div>
       </div>
+      <script>
+        function handleRoleChange() {
+        const selectedRole = document.getElementById('roleType').value;
+
+        const patientFields = document.getElementById('patientFields');
+        const doctorFields = document.getElementById('doctorFields');
+        const nurseFields = document.getElementById('nurseFields');
+
+        patientFields.style.display = 'none';
+        doctorFields.style.display = 'none';
+        nurseFields.style.display = 'none';
+
+        if (selectedRole === 'PATIENT') {
+            patientFields.style.display = 'block';
+        } else if (selectedRole === 'DOCTOR') {
+            doctorFields.style.display = 'block';
+        } else if (selectedRole === 'NURSE') {
+            nurseFields.style.display = 'block';
+        }else{
+            patientFields.style.display = 'none';
+            doctorFields.style.display = 'none';
+            nurseFields.style.display = 'none';
+        }
+        }
+
+        // Call the function initially to set the display state based on pre-selected role (if any)
+        handleRoleChange();
+      </script>
 </div>

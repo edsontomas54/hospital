@@ -19,6 +19,18 @@ return new class extends Migration
             $table->string('password');
             $table->enum("role", ['PATIENT','DOCTOR','NURSE','ADMIN','MANAGER','default'])->default('default');
             $table->boolean('is_admin')->default(false);
+            $table->date('birthDay');
+            $table->enum('gender', ['Male', 'Female']);
+            $table->string('bI')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone');
+            $table->string('emergencyContact');
+            // Additional fields
+            $table->string('allergies')->nullable();
+            $table->string('medicines')->nullable();
+            $table->string('bloodType')->nullable();
+            $table->string('specialty')->nullable();
+            $table->string('nurse')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
