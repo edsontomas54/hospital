@@ -30,4 +30,9 @@ class MakeAppointment extends Model
     {
         return $this->belongsToMany(User::class, 'make_appointment_users');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,"user_id");
+    }
 }

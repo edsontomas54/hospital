@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin;
 
+use App\Enums\RoleEnum;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -13,7 +14,7 @@ class Dashboard extends Component
         session()->invalidate();
         session()->regenerateToken();
 
-        return redirect()->to('/admin/login'); // Redirect to the login page or home page
+        return redirect()->to('/'); // Redirect to the login page or home page
     }
 
     public function render()

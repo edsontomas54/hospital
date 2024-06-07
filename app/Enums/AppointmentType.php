@@ -4,14 +4,36 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
-/**
- * @method static static OptionOne()
- * @method static static OptionTwo()
- * @method static static OptionThree()
- */
 final class AppointmentType extends Enum
 {
-    const Urgent = 'urgente';
-    const Scheduled = 'agendada';
-    const WalkIn = 'espontânea';
+    const URGENT = 'urgent';
+    const SCHEDULED = 'scheduled';
+    const WALKIN = 'walkIn';
+
+    /**
+     * Get the Portuguese translation of the status.
+     *
+     * @param string $key
+     * @return string
+     */
+    public static function getPortugueseLabel(string $key): string
+    {
+        $translations = [
+            self::URGENT => 'urgente',
+            self::SCHEDULED => 'agendada',
+            self::WALKIN => 'espontânea',
+        ];
+
+        return $translations[$key] ?? $key;
+    }
+
+    /**
+     * Get the enum values as an array.
+     *
+     * @return array
+     */
+    public static function asArrayValues(): array
+    {
+        return self::getValues();
+    }
 }

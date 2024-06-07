@@ -13,9 +13,24 @@ use BenSampo\Enum\Enum;
  */
 final class RoleEnum extends Enum
 {
-    const PATIENT = 'Paciente';
-    const DOCTOR = 'Medico /a';
-    const NURSE = 'Enfermeiro /a';
-    const ADMIN = 'Administrador';
-    const MANAGER = 'Manager';
+    const PATIENT = 'PATIENT';
+    const DOCTOR = 'DOCTOR';
+    const NURSE = 'NURSE';
+    const ADMIN = 'ADMIN';
+    const MANAGER = 'MANAGER';
+
+
+    public static function getPortugueseLabel(string $key): string
+    {
+        $translations = [
+             Self::PATIENT => 'Paciente',
+             Self::DOCTOR =>'Medico /a',
+             Self::NURSE => 'Enfermeiro /a',
+             Self::ADMIN => 'Administrador',
+             Self::MANAGER => 'Manager',
+        ];
+
+        return $translations[$key] ?? $key;
+    }
+
 }

@@ -515,10 +515,10 @@
                         <div class="dropdown-divider"></div>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="javascript:void(0);">
+                        <button class="dropdown-item">
                           <i class="bx bx-power-off me-2"></i>
-                          <span class="align-middle" wire:click="logout">Log Out</span>
-                        </a>
+                          <span class="align-middle" wire:click.prevent="logout">Log Out</span>
+                        </button>
                       </li>
                     </ul>
                   </li>

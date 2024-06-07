@@ -40,6 +40,7 @@ return [
 
     'layout' => 'layouts.app',
     'layoutAdmin' => 'layouts.layout-admin',
+    'layoutUser' => 'layouts.main-layout',
 
     /*
     |---------------------------------------------------------------------------

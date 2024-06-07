@@ -23,8 +23,6 @@ class IsAdmin
                 return $next($request);
             }
         }
-
-        toastr()->error(" You have no Permission loggin as Admin","No Permission");
         return redirect('/');
 
     }
