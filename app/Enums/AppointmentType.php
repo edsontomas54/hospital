@@ -6,9 +6,9 @@ use BenSampo\Enum\Enum;
 
 final class AppointmentType extends Enum
 {
-    const URGENT = 'urgent';
-    const SCHEDULED = 'scheduled';
-    const WALKIN = 'walkIn';
+    const urgent = 'urgent';
+    const scheduled = 'scheduled';
+    const walk_in = 'walk_in';
 
     /**
      * Get the Portuguese translation of the status.
@@ -19,9 +19,9 @@ final class AppointmentType extends Enum
     public static function getPortugueseLabel(string $key): string
     {
         $translations = [
-            self::URGENT => 'urgente',
-            self::SCHEDULED => 'agendada',
-            self::WALKIN => 'espontânea',
+            self::urgent => 'Urgente',
+            self::scheduled => 'Marcação por horário',
+            self::walk_in => 'Espontânea',
         ];
 
         return $translations[$key] ?? $key;

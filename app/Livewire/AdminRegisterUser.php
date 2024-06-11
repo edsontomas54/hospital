@@ -3,9 +3,9 @@
 namespace App\Livewire;
 
 use App\Enums\BloodTypeEnum;
-use App\Enums\DoctorSpecialtyEnum;
 use App\Enums\NurseSpecialtyEnum;
 use App\Enums\RoleEnum;
+use App\Enums\Specialty;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -86,10 +86,10 @@ class AdminRegisterUser extends Component
             'password' => 'required|string|min:6|confirmed',
             'birthDay' => 'required|date',
             'gender' => 'required|in:Male,Female',
-            'bI' => 'nullable|string',
+            'bI' => 'nullable|string|min:13',
             'address' => 'nullable|string',
-            'phone' => 'required|string',
-            'emergencyContact' => 'required|string',
+            'phone' => 'required|string|min:9',
+            'emergencyContact' => 'required|string|min:9',
             // Additional fields
             'allergies' => 'nullable|string',
             'medicines' => 'nullable|string',
@@ -154,6 +154,7 @@ class AdminRegisterUser extends Component
         // Save the user to the database
         $user->save();
 
+        $this->reset();
         // Optionally, you can flash a success message
         toastr()->success("User registered successfully");
     }
@@ -164,7 +165,7 @@ class AdminRegisterUser extends Component
     {
         $roles=[];
         if(Auth::check()){
-            
+
         if(Auth()->user()->role=="NURSE"){
             $roles = [RoleEnum::PATIENT];
         }else{
@@ -175,20 +176,12 @@ class AdminRegisterUser extends Component
             $roles = RoleEnum::getValues();
         }
         $bloodTypes = BloodTypeEnum::getValues();
-        $specialties = DoctorSpecialtyEnum::getValues();
+        $specialties = Specialty::getValues();
         $nurseSpecialties = NurseSpecialtyEnum::getValues();
 
         return view('livewire.admin-register-user',compact('roles',
         'bloodTypes','specialties','nurseSpecialties',
         ))
         ->layout(config('livewire.layoutAdmin'));
-    }
-
-    public function mount()
-    {
-        if($this->role !=null){
-
-            dd($this->role);
-        }
     }
 }

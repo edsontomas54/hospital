@@ -12,10 +12,10 @@ use BenSampo\Enum\Enum;
  */
 final class Status extends Enum
 {
-    const Requested = 'requested';
-    const Marked = 'marked';
-    const Concluded = 'concluded';
-    const Rejected = 'rejected';
+    const requested = 'requested';
+    const marked = 'marked';
+    const concluded = 'concluded';
+    const rejected = 'rejected';
 
 
     /**
@@ -38,10 +38,10 @@ final class Status extends Enum
     public static function getPortugueseLabel(string $key): string
     {
         $translations = [
-            self::Requested => 'solicitada',
-            self::Marked => 'marcada',
-            self::Concluded => 'concluída',
-            self::Rejected => 'rejeitada',
+            self::requested => 'Solicitada',
+            self::marked => 'Marcada',
+            self::concluded => 'Concluída',
+            self::rejected => 'Rejeitada',
         ];
 
         return $translations[$key] ?? $key;

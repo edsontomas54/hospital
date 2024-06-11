@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin;
 
+use Flasher\Laravel\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -9,6 +10,17 @@ class AdminLoginUser extends Component
 {
     public $email;
     public $password;
+
+
+    public function mount(){
+        if(Auth::check()){
+            Auth::logout();
+            session()->invalidate();
+            session()->regenerateToken();
+
+            return redirect(route('admin.login'));
+        }
+    }
 
 
     public function login()

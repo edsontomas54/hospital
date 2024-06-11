@@ -24,10 +24,10 @@ final class RoleEnum extends Enum
     {
         $translations = [
              Self::PATIENT => 'Paciente',
-             Self::DOCTOR =>'Medico /a',
-             Self::NURSE => 'Enfermeiro /a',
+             Self::DOCTOR =>'Medico',
+             Self::NURSE => 'Enfermeiro',
              Self::ADMIN => 'Administrador',
-             Self::MANAGER => 'Manager',
+             Self::MANAGER => 'Director',
         ];
 
         return $translations[$key] ?? $key;

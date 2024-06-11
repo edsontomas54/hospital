@@ -63,3 +63,46 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/admin/login', AdminLoginUser::class)->name('admin.login');
 });
 Now, only users with the is_admin attribute set to true will be able to access the specified admin routes. Non-admin users will be redirected to the homepage or another specified route.
+
+
+
+==============================================================
+
+
+
+
+<?php
+
+namespace App\Livewire\Admin;
+
+use App\Enums\RoleEnum;
+use App\Enums\Status;
+use App\Models\MakeAppointment;
+use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
+
+class ViewAppointmentComponent extends Component
+{
+    public function render()
+    {
+        $makeAppointments = collect();
+
+        $text="";
+
+        $user = Auth::user();
+        if($user->role==RoleEnum::ADMIN || $user->role==RoleEnum::MANAGER){
+            $text = "Total de Marcações!";
+            $makeAppointments = MakeAppointment::orderBy('created_at', 'DESC')->get();
+        }elseif($user->role==RoleEnum::NURSE){
+            $makeAppointments = MakeAppointment::where('status', "!=" ,Status::marked)->get();
+            $text="Total de Marcações sem o estado Marcado!";
+        }elseif($user->role==RoleEnum::DOCTOR){
+            $makeAppointments = MakeAppointment::where('doctor_id',$user->id)
+            ->where('status', "=" ,Status::marked)->get();
+            $text="Total de Marcações Marcado a si!";
+        }
+
+        return view('livewire.admin.view-appointments-component',compact('makeAppointments','text'))
+        ->layout(config('livewire.layoutAdmin'));
+    }
+}

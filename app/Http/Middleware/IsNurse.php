@@ -17,12 +17,11 @@ class IsNurse
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->is_admin &&
-            Auth::user()->role=="NURSE") {
+        if (Auth::check() && Auth::user()->is_admin ||
+            Auth::user()->role==RoleEnum::NURSE) {
             return $next($request);
         }
 
-        toastr()->error(" You have no Permission loggin as Admin or Nurse","No Permission");
         return redirect('/');
     }
 }

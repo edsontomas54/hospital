@@ -18,24 +18,43 @@
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
                     <label for="bi_number">Número de BI</label>
-                    <input type="text" wire:model="bi_number" class="form-control" id="bi_number" placeholder="EX: 84xxxxxxx9">
+                    <input type="text" wire:model="bi_number" class="form-control" id="bi_number" placeholder="EX: 11xxxxxxx954A">
                     @error('bi_number') <span class="error">{{ $message }}</span> @enderror
                 </div>
                 <div class="col-md-4 form-group mt-3 mt-md-0">
                     <label for="appointment_date">Data da Consulta</label>
-                    <input type="date" wire:model="appointment_date" class="form-control" id="appointment_date">
-                    {{-- @error('appointment_date') <span class="error">{{ $message }}</span> @enderror --}}
+                    <input type="date" wire:model="appointment_date" class="form-control" id="appointment_date"
+                    min="{{ date('Y-m-d') }}"
+                    max="{{ date('Y') }}-12-31"
+                    oninvalid="this.setCustomValidity(this.validity.rangeUnderflow ? 'A data deve ser a partir de ' + this.min + '.' : this.validity.rangeOverflow ? 'A data deve ser até ' + this.max + '.' : this.validity.valueMissing ? 'Por favor, preencha este campo.' : 'Data inválida.')"
+                    oninput="this.setCustomValidity('')"
+                    >
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-4 form-group mt-3">
+                {{-- start time perferece --}}
+                {{-- <div class="col-md-4 form-group mt-3">
                     <label for="preferred_time">Horário Preferencial</label>
                     <input type="time" wire:model="preferred_time" class="form-control" id="preferred_time"
-                    {{-- max="00:30" --}}
                     >
-                    {{-- @error('preferred_time') <span class="error">{{ $message }}</span> @enderror --}}
+                </div> --}}
+                <div class="col-md-4 form-group mt-3">
+                    <label for="preferred_time">Horário Preferencial</label>
+                    <select wire:model="preferred_time" id="preferred_time" class="form-select">
+                        @for ($h = 0; $h < 24; $h++)
+                            @for ($m = 0; $m < 60; $m++)
+                                {{-- Generate options for each hour and minute --}}
+                                @php
+                                    $hour = str_pad($h, 2, '0', STR_PAD_LEFT);
+                                    $minute = str_pad($m, 2, '0', STR_PAD_LEFT);
+                                @endphp
+                                <option value="{{ $hour . ':' . $minute }}">{{ $hour . ':' . $minute }}</option>
+                            @endfor
+                        @endfor
+                    </select>
                 </div>
+                {{-- end time perferece --}}
                 <div class="col-md-4 form-group mt-3">
                     <label for="appointment_type">Tipo de Consulta</label>
                     <select wire:model="appointment_type" id="appointment_type" class="form-select">
@@ -50,12 +69,12 @@
                     <label for="specialty">Especialidade</label>
                     <select wire:model="specialty" id="specialty" class="form-select">
                         <option value="">Especialidade</option>
-                        <option value="pediatrician">Pediatra</option>
-                        <option value="dentist">Dentista</option>
-                        <option value="psychologist">Psicólogo</option>
-                        <option value="general_practitioner">Clínico Geral</option>
-                        <option value="obstetrician" class="female-only" disabled>Obstetra</option>
-                        <option value="prenatal" class="female-only" disabled>Consulta pré-natal</option>
+                        <option value="Pediatrician">Pediatra</option>
+                        <option value="Dentist">Dentista</option>
+                        <option value="Psychologist">Psicólogo</option>
+                        <option value="GeneralPractitioner">Clínico Geral</option>
+                        <option value="Obstetrician" class="female-only" disabled>Obstetra</option>
+                        <option value="Prenatal" class="female-only" disabled>Consulta pré-natal</option>
                     </select>
                     {{-- @error('specialty') <span class="error">{{ $message }}</span> @enderror --}}
                 </div>

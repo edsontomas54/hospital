@@ -15,11 +15,28 @@ use BenSampo\Enum\Enum;
  */
 final class NurseSpecialtyEnum extends Enum
 {
-    const PediatricNursing = 'Enfermagem Pediátrica';
-    const ObstetricNursing = 'Enfermagem Obstétrica';
-    const DentalNursing = 'Enfermagem Odontológica';
-    const MentalHealthNursing = 'Enfermagem em Saúde Mental';
-    const GeneralClinicalNursing = 'Enfermagem Clínica Geral';
-    const TriageAndEmergencyNursing = 'Enfermagem de Triagem e Urgência';
-    const HealthEducationAndPreventionNursing = 'Enfermagem de Educação e Prevenção em Saúde';
+    const PediatricNursing = 'PediatricNursing';
+    const ObstetricNursing = 'ObstetricNursing';
+    const DentalNursing = 'DentalNursing';
+    const MentalHealthNursing = 'MentalHealthNursing';
+    const GeneralClinicalNursing = 'GeneralClinicalNursing';
+    const TriageAndEmergencyNursing = 'TriageAndEmergencyNursing';
+    const HealthEducationAndPreventionNursing = 'HealthEducationAndPreventionNursing';
+
+
+
+    public static function getPortugueseLabel(string $key): string
+    {
+        $translations = [
+            Self::PediatricNursing => 'Enfermagem Pediátrica',
+            Self::ObstetricNursing => 'Enfermagem Obstétrica',
+            Self::DentalNursing => 'Enfermagem Odontológica',
+            Self::MentalHealthNursing => 'Enfermagem em Saúde Mental',
+            Self::GeneralClinicalNursing => 'Enfermagem Clínica Geral',
+            Self::TriageAndEmergencyNursing => 'Enfermagem de Triagem e Urgência',
+            Self::HealthEducationAndPreventionNursing => 'Enfermagem de Educação e Prevenção em Saúde',
+        ];
+
+        return $translations[$key] ?? $key;
+    }
 }

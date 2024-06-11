@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class IsPATIENT
+class IsEmployee
 {
     /**
      * Handle an incoming request.
@@ -17,12 +17,15 @@ class IsPATIENT
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->is_admin ||
-            Auth::user()->role==RoleEnum::PATIENT ) {
-            return $next($request);
-        }
+        if (Auth::check()) {
+            if(Auth::user()->is_admin ||
+                Auth::user()->role!=RoleEnum::PATIENT
+                ){
 
-        toastr()->error("Você não tem permissão, faça login primeiro","No Permission");
-        return redirect(route('admin.login'));
+                return $next($request);
+            }
+        }
+        return redirect('/');
+
     }
 }

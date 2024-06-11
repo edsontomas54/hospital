@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\AppointmentType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,7 +15,7 @@ class MakeAppointment extends Model
     protected $fillable = [
         'name',
         'user_id',
-        'assigned_to_id',
+        'doctor_id',
         'bi_number',
         'appointment_date',
         'preferred_time',
@@ -33,6 +34,16 @@ class MakeAppointment extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class,"user_id");
+        return $this->belongsTo(User::class,"user_id",);
+    }
+
+    public function doctor()
+    {
+        return $this->belongsTo(User::class,"doctor_id",);
+    }
+
+    public function getAllUrgentAppointment(){
+        return $this->urgentAppointments = self::where('appointment_type',AppointmentType::urgent)
+        ->orderBy('created_at', 'DESC')->get();
     }
 }

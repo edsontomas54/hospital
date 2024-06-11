@@ -14,11 +14,28 @@ use BenSampo\Enum\Enum;
  */
 final class Specialty extends Enum
 {
-    const Pediatrician = 'pediatra';
-    const Dentist = 'dentista';
-    const Psychologist = 'psicólogo';
-    const GeneralPractitioner = 'clínico geral';
-    const Obstetrician = 'obstetra';
-    const Prenatal = 'consulta pré-natal';
+    const Pediatrician = 'Pediatrician';
+    const Dentist = 'Dentist';
+    const Psychologist = 'Psychologist';
+    const GeneralPractitioner = 'GeneralPractitioner';
+    const Obstetrician = 'Obstetrician';
+    const Prenatal = 'Prenatal';
+
+
+
+    public static function getPortugueseLabel(string $key): string
+    {
+        $translations = [
+
+            Self::Pediatrician => 'Pediatra',
+            Self::Dentist => 'Dentista',
+            Self::Psychologist => 'Psicólogo',
+            Self::GeneralPractitioner => 'Clínico geral',
+            Self::Obstetrician => 'Obstetra',
+            Self::Prenatal => 'Consulta pré-natal',
+        ];
+
+        return $translations[$key] ?? $key;
+    }
 }
 

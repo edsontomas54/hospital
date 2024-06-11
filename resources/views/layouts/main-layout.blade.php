@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="utf-8">
@@ -15,11 +15,12 @@
 
   <!-- Google Fonts -->
   {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"> --}}
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <link
   href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
   rel="stylesheet" />
-
+`
   <!-- Vendor CSS Files -->
   <link href="{{'../assets2/vendor/fontawesome-free/css/all.min.css'}}" rel="stylesheet">
   <link href="{{'../assets2/vendor/animate.css/animate.min.css'}}" rel="stylesheet">
@@ -67,37 +68,9 @@
         <img src="../assets/img/fotos/Emblem_of_Mozambique_(1982-1990).svg.png" alt="Emblem of Mozambique" class="img-fluid">
     </a>
 
+    @include('layouts.normal-nav-bar')
 
-      <nav id="navbar" class="navbar  order-last order-lg-0">
-        <ul >
-          <li><a class="nav-link scrollto active" href="/">Início</a></li>
-          <li><a class="nav-link scrollto" href="{{route('admin.login')}}">Entrar</a></li>
-          <li><a class="nav-link scrollto" href="{{route('user.appointment')}}">Suas Marcacoes</a></li>
-          {{-- <li><a class="nav-link scrollto" href="{{route('admin.dashboard')}}">Dashboard</a></li> --}}
-
-          {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li> --}}
-              {{-- <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul> --}}
-          {{-- </li> --}}
-          <li><a class="nav-link scrollto" href="#contact">Contacte-nos</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Marcar consulta</a>
+      <a href="/#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Marcar consulta</a>
         <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
 
     </div>

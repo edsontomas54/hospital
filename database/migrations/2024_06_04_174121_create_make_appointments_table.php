@@ -15,15 +15,17 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger("user_id")->unsigned();
+            $table->bigInteger("doctor_id")->unsigned()->nullable();
             $table->string('bi_number');
             $table->date('appointment_date');
             $table->time('preferred_time');
             $table->enum('appointment_type', ['urgent', 'scheduled', 'walk_in']);
-            $table->enum('specialty', ['pediatrician', 'dentist', 'psychologist', 'general_practitioner', 'obstetrician', 'prenatal']);
+            $table->enum('specialty', ['Pediatrician','Dentist','Psychologist','GeneralPractitioner','Obstetrician','Prenatal']);
             $table->enum('gender', ['male', 'female']);
             $table->enum('status',['requested', 'marked', 'concluded','rejected']);
             $table->text('message')->nullable();
             $table->foreign("user_id")->references("id")->on("users")->onDelete('cascade');
+            $table->foreign("doctor_id")->references("id")->on("users")->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

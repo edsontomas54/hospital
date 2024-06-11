@@ -3,11 +3,17 @@
 namespace App\Livewire\Admin;
 
 use App\Enums\RoleEnum;
+use App\Enums\Status;
+use App\Models\MakeAppointment;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Dashboard extends Component
 {
+    public $deletedDoctorCount;
+    public $totalDoctorCount;
     public function logout()
     {
         Auth::logout();
@@ -19,7 +25,57 @@ class Dashboard extends Component
 
     public function render()
     {
+
+        $appointments = MakeAppointment::where('status',Status::concluded)->get();
+
+        $statusTotals = [
+            'requested' => $appointments->where('status', 'requested')->count(),
+            'marked' => $appointments->where('status', 'marked')->count(),
+            'concluded' => $appointments->where('status', 'concluded')->count(),
+            'rejected' => $appointments->where('status', 'rejected')->count(),
+        ];
+
+        $appointmentTypeTotals = [
+            'urgent' => $appointments->where('appointment_type', 'urgent')->count(),
+            'scheduled' => $appointments->where('appointment_type', 'scheduled')->count(),
+            'walk_in' => $appointments->where('appointment_type', 'walk_in')->count(),
+        ];
+
+        $specialtyTotals = [
+            'WITHOUT_DOCTOR' => $appointments->where('doctor_id', '=',NULL)->count(),
+            'Pediatrician' => $appointments->where('specialty', 'Pediatrician')->count(),
+            'Dentist' => $appointments->where('specialty', 'Dentist')->count(),
+            'Psychologist' => $appointments->where('specialty', 'Psychologist')->count(),
+            'GeneralPractitioner' => $appointments->where('specialty', 'GeneralPractitioner')->count(),
+            'Obstetrician' => $appointments->where('specialty', 'Obstetrician')->count(),
+            'Prenatal' => $appointments->where('specialty', 'Prenatal')->count(),
+        ];
+
+        $users = User::all();
+
+        $doctorsTotals = [
+            'PediatricianDoc' => $users->where('specialty', 'Pediatrician')->count(),
+            'DentistDoc' => $users->where('specialty', 'Dentist')->count(),
+            'PsychologistDoc' => $users->where('specialty', 'Psychologist')->count(),
+            'GeneralPractitionerDoc' => $users->where('specialty', 'GeneralPractitioner')->count(),
+            'ObstetricianDoc' => $users->where('specialty', 'Obstetrician')->count(),
+            'PrenatalDoc' => $users->where('specialty', 'Prenatal')->count(),
+        ];
+
+        //deleted doctors
+        $this->deletedDoctorCount = DB::table('users')
+        ->where('role', 'DOCTOR')
+        ->whereNotNull('deleted_at')
+        ->count();
+
+        $this->totalDoctorCount = DB::table('users')
+        ->where('role', 'DOCTOR')
+        ->where('deleted_at',NULL)
+        ->count();
+
         $user = Auth::user();
-        return view('livewire.admin.dashboard', compact('user'))->layout(config('livewire.layoutAdmin'));
+        return view('livewire.admin.dashboard', compact('user',
+        'statusTotals', 'appointmentTypeTotals', 'specialtyTotals','appointments','doctorsTotals'
+        ))->layout(config('livewire.layoutAdmin'));
     }
 }
