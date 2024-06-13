@@ -10,6 +10,7 @@ use App\Livewire\AdminRegisterUser;
 use App\Livewire\HomeComponent;
 use App\Livewire\ReportsPdf\UserServicePassword;
 use App\Livewire\User\ForGotPassword;
+use App\Livewire\User\UserEditAppointmentMaked;
 use App\Livewire\User\ViewAppointment;
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +54,7 @@ Route::middleware(["auth",'can_see_appointment'])->group(function (){
 
 Route::middleware(["auth","is_patient"])->group(function (){
     Route::get('/appointment/list', ViewAppointment::class)->name('user.appointment');
+    Route::get('/{appointment_OID}', UserEditAppointmentMaked::class)->name('user.appointment.edit');
     Route::get('/appointment/list/download/service/password/{Oid}', [UserServicePassword::class,'downloadPDF'])->name('user.appointment.download.service.password');
 });
 

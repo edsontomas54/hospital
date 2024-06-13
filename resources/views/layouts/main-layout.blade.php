@@ -47,7 +47,7 @@
 <body>
 
       <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-flex align-items-center">
+  {{-- <div id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center">
         <div class="contact-info d-flex align-items-center">
             <a class="bi bi-envelope me-2" href="mailto:info.geral@misau.com"> info.geral@misau.com</a>
@@ -55,11 +55,11 @@
             <a class="bi bi-geo-alt me-2" href="https://maps.app.goo.gl/QBy7GRywCmA6kBc48"> Matola, Patrice Lumumba, São Dâmaso</a>
         </div>
     </div>
-</div>
+</div> --}}
 
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
+  <header id="header" class="fixed-top mb-5">
     <div class="container d-flex align-items-center">
 {{--
       <h1 class="logo me-auto"><a href="index.html">Medilab</a></h1> --}}
@@ -85,6 +85,9 @@
 <script src="{{'../assets2/vendor/glightbox/js/glightbox.min.js'}}"></script>
 <script src="{{'../assets2/vendor/swiper/swiper-bundle.min.js'}}"></script>
 <script src="{{'../assets2/vendor/php-email-form/validate.js'}}"></script>
+<!-- Toastr CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+
 
 <!-- Template Main JS File -->
 <script src="{{'../assets2/js/main.js'}}"></script>

@@ -99,7 +99,7 @@
                                 <td>
                                     <select wire:model="preferred_time" id="preferred_time" class="form-select">
                                         @for ($h = 0; $h < 24; $h++)
-                                            @for ($m = 0; $m < 60; $m++)
+                                            @for ($m = 0; $m < 60; $m+=30)
                                                 {{-- Generate options for each hour and minute --}}
                                                 @php
                                                     $hour = str_pad($h, 2, '0', STR_PAD_LEFT);
@@ -168,7 +168,7 @@
             <!-- / Content -->
 
             <!-- Footer -->
-            
+
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>

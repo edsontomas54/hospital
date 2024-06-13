@@ -51,13 +51,7 @@ class EditAppointmentsComponent extends Component
     {
         $makeAppointment = MakeAppointment::with('user')->find($this->app_id);
 
-
         $doctors= User::getUsersBySpecialty($makeAppointment->specialty);
-
-
-        $key = rand(0,7);
-
-        dd($key);
 
         return view('livewire.admin.edit-appointments-component',compact('makeAppointment','doctors'))
         ->layout(config('livewire.layoutAdmin'));

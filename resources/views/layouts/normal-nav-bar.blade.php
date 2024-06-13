@@ -1,7 +1,7 @@
 
 <nav id="navbar" class="navbar  order-last order-lg-0">
     <ul >
-      <li><a class="nav-link scrollto active" href="#hero">Início</a></li>
+      <li><a class="nav-link scrollto active" href="/#hero">Início</a></li>
       @if (!Auth::check())
         <li><a class="nav-link scrollto" href="{{route('admin.login')}}">Entrar</a></li>
       @else

@@ -29,7 +29,7 @@
                       <div class="col-sm-7">
                         <div class="card-body">
                           <h5 class="card-title text-primary">{{"Todos"}}</h5>
-                          <p class="mb-4"><span class="fw-medium">{{$users->count()}}</span>
+                          <p class="mb-4"><span class="fw-medium">{{$users->total()}}</span>
                           </p>
 
                           {{-- <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a> --}}
@@ -101,6 +101,7 @@
                 </div>
               </div>
               <!--/ Contextual Classes -->
+              {{$users->links()}}
                 </div>
               </div>
             </div>

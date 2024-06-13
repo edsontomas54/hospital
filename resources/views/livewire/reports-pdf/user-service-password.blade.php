@@ -48,7 +48,7 @@
                 <p class="first-item">Estado: <span>{{$status}}</span></p>
                 <p class="first-item">Nome do paciente: <span>{{$appointment->user->name}}</span></p>
                 <p>Número de BI: <span>{{$appointment->user->bI}}</span></p>
-                <p>Senha de atendimento- PDF: <span>545455545454S-01</span></p>
+                <p>Senha de atendimento- PDF: <span>{{$key}}</span></p>
                 <p>Nome do Médico: <span>{{$appointment->doctor->name}}</span></p>
                 <p>Data da Consulta: <span>{{$appointment->appointment_date}}</span></p>
                 <p>Horário: <span>{{$time}}</span></p>

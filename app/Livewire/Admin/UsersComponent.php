@@ -5,10 +5,14 @@ namespace App\Livewire\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class UsersComponent extends Component
 {
     public $userID;
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
 
 
 
@@ -26,7 +30,7 @@ class UsersComponent extends Component
 
     public function render()
     {
-        $users = User::orderBy("created_at", "DESC")->get();
+        $users = User::orderBy("created_at", "DESC")->paginate(8);
         return view('livewire.admin.users-component', compact('users'))
         ->layout(config('livewire.layoutAdmin'));
     }

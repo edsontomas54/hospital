@@ -1,13 +1,18 @@
 <div>
-    <section id="appointment" class="appointment section-bg">
+    <style>
+        .mrg{
+            margin-top: 8rem;
+        }
+    </style>
+    <section id="appointment" class="appointment section-bg mrg">
         <div class="container">
 
           <div class="section-title">
-            <h2>Formulário de Marcação de consulta </h2>
+            <h2>Editar Formulário de Marcação de consulta </h2>
 
           </div>
 
-          <form wire:submit.prevent="submit" class="php-email-form">
+          <form wire:submit.prevent="update" class="php-email-form">
             <h3>Formulário de Requisitar consulta:</h3>
 
             <div class="row">
@@ -103,7 +108,7 @@
                 @endif
             </div>
 
-            <div class="text-center"><button type="submit">Marcar Consulta</button></div>
+            <div class="text-center"><button type="submit">Actualizar Consulta</button></div>
         </form>
         </div>
       </section>

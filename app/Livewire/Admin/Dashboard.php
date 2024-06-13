@@ -14,6 +14,7 @@ class Dashboard extends Component
 {
     public $deletedDoctorCount;
     public $totalDoctorCount;
+    public $totalsAuthDoctor =[];
     public function logout()
     {
         Auth::logout();
@@ -72,6 +73,18 @@ class Dashboard extends Component
         ->where('role', 'DOCTOR')
         ->where('deleted_at',NULL)
         ->count();
+
+        //Pending Doctor
+        if(Auth::check() && Auth::user()->role==RoleEnum::DOCTOR){
+            $this->totalsAuthDoctor =[
+                'totalConcludedDoc' => $appointments->where('doctor_id', Auth::user()->id)->count(),
+                'urgentDoc' => $appointments->where('appointment_type', 'urgent')->where('doctor_id', Auth::user()->id)->count(),
+                'scheduledDoc' => $appointments->where('appointment_type', 'scheduled')->where('doctor_id', Auth::user()->id)->count(),
+                'walk_inDoc' => $appointments->where('appointment_type', 'walk_in')->where('doctor_id', Auth::user()->id)->count(),
+
+            ];
+        }
+
 
         $user = Auth::user();
         return view('livewire.admin.dashboard', compact('user',

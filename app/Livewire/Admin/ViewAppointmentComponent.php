@@ -67,12 +67,16 @@ class ViewAppointmentComponent extends Component
         }
 
         // Paginate the merged collection
-        $paginatedAppointments = $this->paginateCollection($appointments, 6);
+        // $paginatedAppointments = $this->paginateCollection($appointments, 6);
 
-        return view('livewire.admin.view-appointments-component', [
-            'appointments' => $paginatedAppointments,
-            'text' => $text,
-        ])->layout(config('livewire.layoutAdmin'));
+        // return view('livewire.admin.view-appointments-component', [
+        //     'appointments' => $paginatedAppointments,
+        //     'text' => $text,
+        // ])->layout(config('livewire.layoutAdmin'));
+
+        $appointments =  $appointments->paginate(8);
+
+        return view('livewire.admin.view-appointments-component',compact('appointments','text'))->layout(config('livewire.layoutAdmin'));
     }
 
     // Helper function to paginate a Laravel Collection

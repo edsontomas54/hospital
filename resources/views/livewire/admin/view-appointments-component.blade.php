@@ -35,7 +35,7 @@
                                             <div class="card-body">
                                                 <h5 class="card-title text-primary">{{$text}}</h5>
                                                 <p class="mb-4">
-                                                    <span class="fw-medium">{{$appointments->count()}}</span>
+                                                    <span class="fw-medium">{{$appointments->total()}}</span>
                                                 </p>
                                             </div>
                                         </div>

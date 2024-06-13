@@ -38,7 +38,12 @@ class UserServicePassword extends Component
         $appointment= MakeAppointment::with('user')
         ->where('id',$request->Oid)
         ->where("user_id", $user->id)->first();
-        
+
+
+        // $key = date("ymd").$appointment->preferred_time . $appointment->id;
+        $key = $this->generateKey($appointment->preferred_time,
+         $appointment->id,$appointment->appointment_date);
+
 
         $hour = Carbon::createFromFormat('H:i:s',$appointment->preferred_time)->format('H');
         $minute = Carbon::createFromFormat('H:i:s',$appointment->preferred_time)->format('H');
@@ -51,7 +56,7 @@ class UserServicePassword extends Component
 
         $html = view('livewire.reports-pdf.user-service-password',
         compact('image','appointment','time'
-        ,'specialty','specialty','statusAppointment','status'));
+        ,'specialty','specialty','statusAppointment','status','key'));
 
         $this->generatPdf($html , "report" . time() . '.pdf');
     }
@@ -74,5 +79,24 @@ class UserServicePassword extends Component
         $image = 'data:image'.$type .';base64,'.base64_encode($data);
 
         return $image;
+    }
+
+    public function generateKey($time,$id,$date){
+
+        // Get the current date in the format YYYYMMDD
+        $current_date = date("Ymd");
+
+        $date_parts = explode('-' , $date);
+
+        $formatted_date = $date_parts[0] . $date_parts[1] .$date_parts[2];
+
+        // Extract and format the time in HHMM format
+        $time_parts = explode(':', $time);
+        $formatted_time = str_pad($time_parts[0], 2, '0', STR_PAD_LEFT) . str_pad($time_parts[1], 2, '0', STR_PAD_LEFT);
+
+        // Concatenate the date, formatted time, and appointment ID to form the key
+        $key =  $formatted_date  . $formatted_time . $id;
+
+        return $key;
     }
 }
