@@ -103,7 +103,7 @@
             <li>
               <a class="dropdown-item" href="{{route('home.logout')}}">
                 <i class="bx bx-power-off me-2"></i>
-                <span class="align-middle">Log Out</span>
+                <span class="align-middle">Sair</span>
               </a>
             </li>
           </ul>

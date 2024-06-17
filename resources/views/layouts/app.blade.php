@@ -52,7 +52,7 @@
         <div class="contact-info d-flex align-items-center">
             <a class="bi bi-envelope me-2" href="mailto:info.geral@misau.com"> info.geral@misau.com</a>
             <a class="bi bi-phone me-2" href="tel:+258840936000"> +258 840 936 000</a>
-            <a class="bi bi-geo-alt me-2" href="https://maps.app.goo.gl/QBy7GRywCmA6kBc48"> Matola, Patrice Lumumba, São Dâmaso</a>
+            <a class="bi bi-geo-alt me-2" href="https://maps.app.goo.gl/QBy7GRywCmA6kBc48" target="_blank"> Matola, Patrice Lumumba, São Dâmaso</a>
         </div>
     </div>
 </div>

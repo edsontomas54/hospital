@@ -8,7 +8,7 @@
           </div>
 
           <form wire:submit.prevent="submit" class="php-email-form">
-            <h3>Formulário de Requisitar consulta:</h3>
+            
 
             <div class="row">
                 <div class="col-md-4 form-group">

@@ -5,7 +5,7 @@
       @if (!Auth::check())
         <li><a class="nav-link scrollto" href="{{route('admin.login')}}">Entrar</a></li>
       @else
-      <li><a class="nav-link scrollto" href="{{route('home.logout')}}">logout</a></li>
+      <li><a class="nav-link scrollto" href="{{route('home.logout')}}">Sair</a></li>
       @endif
       <li><a class="nav-link scrollto" href="{{route('user.appointment')}}">Minhas Marcações</a></li>
       {{-- <li><a class="nav-link scrollto" href="{{route('admin.dashboard')}}">Dashboard</a></li> --}}

@@ -24,7 +24,7 @@
                     Para os seguintes gabinetes: <b>Obstetrícia, Odontologia, Psicologia e Clínica Geral.</b>
                   </p>
                   <div class="text-center">
-                    <a href="#" class="more-btn">Marcar consulta</a>
+                    <a href="#appointment" class="more-btn">Marcar consulta</a>
                   </div>
                 </div>
               </div>
@@ -658,7 +658,7 @@
                   <div class="phone">
                     <i class="bi bi-phone"></i>
                     <h4>Telefone:</h4>
-                    <a class="bi bi-phone me-2" href="tel:+258840936000"> +258 840 936 000</a>
+                    <a class="" href="tel:+258840936000">  +258 840 936 000</a>
                   </div>
 
                 </div>
@@ -666,11 +666,8 @@
               </div>
 
               <div class="col-lg-8 mt-5 mt-lg-0">
-                <iframe style="border:0; width: 100%; height: 350px;"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-122.4194!3d37.7749!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen>
-                </iframe>
 
-
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3589.827151843603!2d32.5078689!3d-25.8751657!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee68f601c1dca43%3A0xe24907008a7f8db!2zRMOibWFzbyBzYW1hZMOjbyBvYXPDoXJpYSBhZG51Y2VzIGFsb2NzZGVsQ2VudHJvIERlIFNhw7pkZSBTw6NvIETDom1M!5e0!3m2!1spt-PT!2smz!4v1718545896438!5m2!1spt-PT!2smz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 {{-- <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                   <div class="row">
                     <div class="col-md-6 form-group">

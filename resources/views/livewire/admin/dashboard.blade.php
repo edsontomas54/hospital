@@ -25,9 +25,9 @@
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body">
-                          <h5 class="card-title text-primary">Total de Consultas Feitas, 🎉</h5>
+                          <h5 class="card-title text-primary">Total de Consultas concluídas</h5>
                           <p class="mb-4" style="font-size: 1rem">
-                            O numero total de consultas feitas é de <span class="fw-bold">{{$appointments->count()}}</span>.
+                            O numero total de consultas concluídas é de <span class="fw-bold">{{$appointments->count()}}</span>.
                           </p>
 
                           <a href="javascript:;" class="btn btn-sm btn-outline-primary"> Desde de 2024-06-01</a>
@@ -47,7 +47,7 @@
                             class="rounded" />
                         </div>
                       </div>
-                      <span>Consultas feitas Urgentes</span>
+                      <span>Consultas concluídas Urgentes</span>
                       <h3 class="card-title text-nowrap mb-1">{{ $appointmentTypeTotals['urgent'] }}</h3>
                       {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                     </div>
@@ -64,7 +64,7 @@
                             class="rounded" />
                         </div>
                       </div>
-                      <span class="fw-medium d-block mb-1">Consultas feitas Espontânea</span>
+                      <span class="fw-medium d-block mb-1">Consultas concluídas Espontânea</span>
                       <h3 class="card-title mb-2">{{ $appointmentTypeTotals['walk_in'] }}</h3>
                       {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> --}}
                     </div>
@@ -81,7 +81,7 @@
                             class="rounded" />
                         </div>
                       </div>
-                      <span>Consultas feitas por Pré Marcação</span>
+                      <span>Consultas concluídas por Pré Marcação</span>
                       <h3 class="card-title text-nowrap mb-1">{{ $appointmentTypeTotals['scheduled'] }}</h3>
                       {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                     </div>
@@ -118,7 +118,7 @@
                             class="rounded" />
                         </div>
                       </div>
-                      <span>Consultas feitas em Pediatra</span>
+                      <span>Consultas concluídas em Pediatra</span>
                       <h3 class="card-title text-nowrap mb-1">{{ $specialtyTotals['Pediatrician'] }}</h3>
                       {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                     </div>
@@ -136,7 +136,7 @@
                               class="rounded" />
                           </div>
                         </div>
-                        <span>Consultas feitas em Obstetra</span>
+                        <span>Consultas concluídas em Obstetra</span>
                         <h3 class="card-title text-nowrap mb-1">{{ $specialtyTotals['Obstetrician'] }}</h3>
                         {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                       </div>
@@ -154,7 +154,7 @@
                               class="rounded" />
                           </div>
                         </div>
-                        <span>Consultas feitas no Dentista</span>
+                        <span>Consultas concluídas no Dentista</span>
                         <h3 class="card-title text-nowrap mb-1">{{ $specialtyTotals['Dentist'] }}</h3>
                         {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                       </div>
@@ -172,7 +172,7 @@
                               class="rounded" />
                           </div>
                         </div>
-                        <span>Consultas feitas no Psicólogo</span>
+                        <span>Consultas concluídas no Psicólogo</span>
                         <h3 class="card-title text-nowrap mb-1">{{ $specialtyTotals['Psychologist'] }}</h3>
                         {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                       </div>
@@ -191,7 +191,7 @@
                               class="rounded" />
                           </div>
                         </div>
-                        <span>Consultas feitas no Clínico Geral</span>
+                        <span>Consultas concluídas no Clínico Geral</span>
                         <h3 class="card-title text-nowrap mb-1">{{ $specialtyTotals['GeneralPractitioner'] }}</h3>
                         {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                       </div>
@@ -209,7 +209,7 @@
                               class="rounded" />
                           </div>
                         </div>
-                        <span>Consultas feitas em Prenatal</span>
+                        <span>Consultas concluídas em Prenatal</span>
                         <h3 class="card-title text-nowrap mb-1">{{ $specialtyTotals['Prenatal'] }}</h3>
                         {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                       </div>
@@ -229,7 +229,7 @@
                               class="rounded" />
                           </div>
                         </div>
-                        <span>Total de Médicos Prenatal</span>
+                        <span>Total de Médicos pré-natal</span>
                         <h3 class="card-title text-nowrap mb-1">{{ $doctorsTotals['PrenatalDoc'] }}</h3>
                         {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                       </div>
@@ -322,7 +322,7 @@
                               class="rounded" />
                           </div>
                         </div>
-                        <span>Total de Médicos Psicólogo</span>
+                        <span>Total de Médicos Psicólogos</span>
                         <h3 class="card-title text-nowrap mb-1">{{ $doctorsTotals['PsychologistDoc'] }}</h3>
                         {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                       </div>
@@ -359,9 +359,9 @@
                       <div class="d-flex align-items-end row">
                         <div class="col-sm-7">
                           <div class="card-body">
-                            <h5 class="card-title text-primary">Total de Consultas Feitas por Si</h5>
+                            <h5 class="card-title text-primary">Total de Consultas concluído por Si</h5>
                             <p class="mb-4" style="font-size: 1rem">
-                              O numero total de consultas feitas é de <span class="fw-bold">{{$totalsAuthDoctor['totalConcludedDoc']}}</span>.
+                              O numero total de consultas concluídas é de <span class="fw-bold">{{$totalsAuthDoctor['totalConcludedDoc']}}</span>.
                             </p>
 
                             <a href="javascript:;" class="btn btn-sm btn-outline-primary"> Desde de 2024-06-01</a>
@@ -381,7 +381,7 @@
                               class="rounded" />
                           </div>
                         </div>
-                        <span>Consultas feitas Urgentes</span>
+                        <span>Consultas concluídas Urgentes</span>
                         <h3 class="card-title text-nowrap mb-1">{{ $totalsAuthDoctor['urgentDoc'] }}</h3>
                         {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                       </div>
@@ -398,7 +398,7 @@
                               class="rounded" />
                           </div>
                         </div>
-                        <span class="fw-medium d-block mb-1">Consultas feitas Espontânea</span>
+                        <span class="fw-medium d-block mb-1">Consultas concluídas Espontânea</span>
                         <h3 class="card-title mb-2">{{ $totalsAuthDoctor['walk_inDoc'] }}</h3>
                         {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> --}}
                       </div>
@@ -415,7 +415,7 @@
                               class="rounded" />
                           </div>
                         </div>
-                        <span>Consultas feitas por Pré Marcação</span>
+                        <span>Consultas concluídas por Pré Marcação</span>
                         <h3 class="card-title text-nowrap mb-1">{{ $totalsAuthDoctor['scheduledDoc'] }}</h3>
                         {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                       </div>

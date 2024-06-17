@@ -13,7 +13,7 @@
               <div class="card-body">
                 <!-- Logo -->
                 <div class="app-brand justify-content-center">
-                  <a href="index.html" class="app-brand-link gap-2">
+                  <a href="#" class="app-brand-link gap-2">
                     <span class="app-brand-logo demo">
                         <svg
                         width="150"
@@ -31,12 +31,12 @@
                 <!-- /Logo -->
                 <h4 class="mb-2 text-center">Centro de Saúde São Dâmaso</h4>
 
-                <p class="mb-4  text-center">Bem-vindo ao sistema de marcação de consultas</p>
+                <p class="mb-4  text-center">Formulário de Cadastro</p>
 
                 <form id="formAuthentication" class="mb-3" wire:submit.prevent='register'>
                     {{-- General Inputs  --}}
                 <div class="mb-3">
-                  <label class="form-label" for="roleType">Tipo de Perfil</label>
+                  <label class="form-label" for="roleType">Tipo de Perfil*</label>
                   <select id="roleType" class="form-control form-select" wire:model='role' onchange="handleRoleChange()">
                       <option value="">Selecione o Tipo</option>
                       @foreach ($roles as $role)
@@ -45,19 +45,19 @@
                   </select>
                 </div>
                   <div class="mb-3">
-                    <label for="name" class="form-label">Nome</label>
+                    <label for="name" class="form-label">Nome*</label>
                     <input
                       type="text"
                       class="form-control"
                       id="name"
                       name="name"
-                      placeholder="digite o seu nome"
+                      placeholder="Introduza o nome"
                       autofocus
                       wire:model='name'
                       />
                   </div>
                   <div class="mb-3">
-                    <label for="birthDay" class="form-label">Data de nascimento</label>
+                    <label for="birthDay" class="form-label">Data de nascimento*</label>
                     <input
                       type="date"
                       class="form-control"
@@ -68,36 +68,36 @@
                       />
                   </div>
                   <div class="mb-3">
-                    <label class="form-label" for="gender">Gênero</label>
+                    <label class="form-label" for="gender">Gênero*</label>
                     <select id="gender" class="form-control form-select" wire:model='gender'>
-                        <option value="">Selecione o Genero</option>
-                        <option >Male</option>
-                        <option >Female</option>
+                        <option value="">Selecione o Gênero</option>
+                        <option value="Male">Masculino</option>
+                        <option value="Female">Feminino</option>
                     </select>
                   </div>
                   <div class="mb-3">
-                    <label for="bI" class="form-label">Número de BI</label>
+                    <label for="bI" class="form-label">Número de Bilhete de Identidade*</label>
                     <input wire:model='bI' type="text" class="form-control" id="bI" name="bI" placeholder="Ex: 112XXXXXXXXXA" />
                   </div>
                   <div class="mb-3">
                     <label for="address" class="form-label">Endereço</label>
-                    <input wire:model='address' type="text" class="form-control" id="address" name="address" placeholder="Enter your address" />
+                    <input wire:model='address' type="text" class="form-control" id="address" name="address" placeholder="Introduza o Endereço" />
                   </div>
                   <div class="mb-3">
-                    <label for="phone" class="form-label">Telefone</label>
-                    <input wire:model='phone' type="text" class="form-control" id="phone" name="phone" placeholder="Enter your phone" />
+                    <label for="phone" class="form-label">Contacto</label>
+                    <input wire:model='phone' type="text" class="form-control" id="phone" name="phone" placeholder="Introduza o contacto" />
                   </div>
                   <div class="mb-3">
-                    <label for="emergencyContact" class="form-label">Contacto de Emergencia</label>
-                    <input wire:model='emergencyContact' type="text" class="form-control" id="emergencyContact" name="emergencyContact" placeholder="Enter your emergencyContact" />
+                    <label for="emergencyContact" class="form-label">Contacto de Emergência</label>
+                    <input wire:model='emergencyContact' type="text" class="form-control" id="emergencyContact" name="emergencyContact" placeholder="Introduza um contacto de Emergência" />
                   </div>
                   <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input wire:model='email' type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
+                    <label for="email" class="form-label">Email*</label>
+                    <input wire:model='email' type="text" class="form-control" id="email" name="email" placeholder="Introduza o email" />
                   </div>
 
                   <div class="mb-3 form-password-toggle">
-                    <label class="form-label" for="password">Senha</label>
+                    <label class="form-label" for="password">Senha*</label>
                     <div class="input-group input-group-merge">
                       <input
                         type="password"
@@ -112,7 +112,7 @@
                   </div>
 
                   <div class="mb-3 form-password-toggle">
-                    <label class="form-label" for="confirm_password">Confirmar a Senha</label>
+                    <label class="form-label" for="confirm_password">Confirmar a Senha*</label>
                     <div class="input-group input-group-merge">
                       <input
                         type="password"
@@ -131,14 +131,14 @@
                 <div id="patientFields">
                     <div class="mb-3">
                         <label for="allergies" class="form-label">Alergias</label>
-                        <input wire:model='allergies' type="text" class="form-control" id="allergies" name="allergies" placeholder="Enter your allergies" />
+                        <input wire:model='allergies' type="text" class="form-control" id="allergies" name="allergies" placeholder="Introduza as alergias" />
                     </div>
                     <div class="mb-3">
                         <label for="medicines" class="form-label">Medicamentos</label>
-                        <input wire:model='medicines' type="text" class="form-control" id="medicines" name="medicines" placeholder="Enter your medicines" />
+                        <input wire:model='medicines' type="text" class="form-control" id="medicines" name="medicines" placeholder="Introduza os medicamentos" />
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="bloodType">Tipo Sanguinio</label>
+                        <label class="form-label" for="bloodType">Tipo Sanguíneo*</label>
                         <select id="bloodType" class="form-control form-select" wire:model='bloodType'>
                             <option value="">Selecione o Tipo</option>
                             @foreach ($bloodTypes as $bType)
@@ -151,8 +151,8 @@
                 {{-- DOCTOR --}}
                 <div id="doctorFields" style="display: none;">
                     <div class="mb-3">
-                        <label class="form-label" for="specialty">Especialidade medica</label>
-                        <select id="specialty" class="form-control form-select" wire:model='specialty'>
+                        <label class="form-label" for="specialty">Especialidade médica</label>
+                        <select id="specialty" class="form-control form-select" wire:model='Introduza Especialidade'>
                             <option value="">Selecione o Tipo</option>
                             @foreach ($specialties as $spec)
                             <option value="{{Specialty::getKey($spec)}}">{{Specialty::getPortugueseLabel($spec)}}</option>
@@ -165,7 +165,7 @@
                 <div id="nurseFields" style="display: none;">
                     <div class="mb-3">
                         <label class="form-label" for="nurse">Especialidade do Enfermeiro</label>
-                        <select id="nurse" class="form-control form-select" wire:model='nurse'>
+                        <select id="nurse" class="form-control form-select" wire:model='Introduza Especialidade'>
                             <option value="">Selecione o Tipo</option>
                             @foreach($nurseSpecialties as $specialty)
                             <option value="{{ NurseSpecialtyEnum::getKey($specialty) }}">{{ NurseSpecialtyEnum::getPortugueseLabel($specialty) }}</option>
@@ -174,13 +174,13 @@
                     </div>
                 </div>
                 {{-- NURSE --}}
-                  <button class="btn btn-primary d-grid w-100" type="submit">Sign up</button>
+                  <button class="btn btn-primary d-grid w-100" type="submit">Criar conta</button>
                 </form>
 
                 <p class="text-center">
                   <span>Já tem uma conta?</span>
                   <a href="{{route('admin.login')}}">
-                    <span>faça login</span>
+                    <span>Entre na sua conta</span>
                   </a>
                 </p>
               </div>
