@@ -16,11 +16,16 @@ class UserServicePassword extends Component
 {
     public $path ="";
     public $image="";
+    public $qrCodeImage="";
+    public $qrPath="";
 
     public function __construct(Request $request){
 
         $this->path =  public_path(). '/assets/img/emblema.png';
+        $this->qrPath =  public_path(). '/assets/img/hospitalQrcode.png';
         $this->image = $this->convertImageToBase64( $this->path);
+        $this->qrCodeImage = $this->convertImageToBase64( $this->qrPath);
+
     }
 
     public function render()
@@ -34,6 +39,7 @@ class UserServicePassword extends Component
         $user= Auth::user();
 
         $image =$this->image;
+        $qrCodeImage =$this->qrCodeImage;
 
         $appointment= MakeAppointment::with('user')
         ->where('id',$request->Oid)
@@ -56,7 +62,7 @@ class UserServicePassword extends Component
 
         $html = view('livewire.reports-pdf.user-service-password',
         compact('image','appointment','time'
-        ,'specialty','specialty','statusAppointment','status','key'));
+        ,'specialty','specialty','statusAppointment','status','key','qrCodeImage'));
 
         $this->generatPdf($html , "report" . time() . '.pdf');
     }

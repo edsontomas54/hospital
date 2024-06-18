@@ -57,5 +57,14 @@
             </div>
         </div>
     </div>
+
+    <div class="context">
+        <img src="{{$qrCodeImage}}" class="header-brand-img" alt="Balcão Virtual" width="100px">
+        <p>Validar com o QR code</p>
+        {{-- <p>Ministerio de Saúde</p>
+        <p>Centro de Saúde São Dâmaso
+        </p> --}}
+
+    </div>
 </body>
 </html>
