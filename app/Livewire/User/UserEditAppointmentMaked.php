@@ -2,6 +2,7 @@
 
 namespace App\Livewire\User;
 
+use App\Enums\Status;
 use App\Models\MakeAppointment;
 use Livewire\Component;
 use Illuminate\Support\Facades\Validator;
@@ -90,6 +91,7 @@ class UserEditAppointmentMaked extends Component
         $appointment->appointment_type= $this->appointment_type ;
         $appointment->specialty = $this->specialty;
         $appointment->gender   = $this->gender;
+        $appointment->status = Status::requested;
         $appointment->message = $this->message;
 
         $appointment->save();

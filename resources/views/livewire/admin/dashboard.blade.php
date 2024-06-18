@@ -19,6 +19,81 @@
             <!-- Content -->
             @if (Auth::user()->role != "DOCTOR")
             <div class="container-xxl flex-grow-1 container-p-y">
+
+            {{-- Marked Appointments --}}
+            <div class="row">
+                <div class="col-lg-6 mb-4 order-0">
+                  <div class="card">
+                    <div class="d-flex align-items-end row">
+                      <div class="col-sm-5">
+                        <div class="card-body">
+                          <h5 class="card-title text-primary">Total de Consultas Requisitadas</h5>
+                          <p class="mb-4" style="font-size: 1rem">
+                            O numero total de consultas Requisitadas é de <span class="fw-bold">{{$requestedAppointments->count()}}</span>.
+                          </p>
+
+                          <a href="javascript:;" class="btn btn-sm btn-outline-primary"> Desde de 2024-06-01</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 mb-4 order-0">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title d-flex align-items-start justify-content-between">
+                        <div class="avatar flex-shrink-0">
+                          <img
+                            src="../assets/img/icons/unicons/chart-success.png"
+                            alt="Credit Card"
+                            class="rounded" />
+                        </div>
+                      </div>
+                      <span>Consultas Requisitadas Urgentes</span>
+                      <h3 class="card-title text-nowrap mb-1">{{ $requestedAppointmentTypeTotals['urgent'] }}</h3>
+                      {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-4 order-1">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title d-flex align-items-start justify-content-between">
+                        <div class="avatar flex-shrink-0">
+                          <img
+                            src="../assets/img/icons/unicons/chart-success.png"
+                            alt="chart success"
+                            class="rounded" />
+                        </div>
+                      </div>
+                      <span class="fw-medium d-block mb-1">Consultas Requisitadas Espontânea</span>
+                      <h3 class="card-title mb-2">{{ $requestedAppointmentTypeTotals['walk_in'] }}</h3>
+                      {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> --}}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-4 order-1">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title d-flex align-items-start justify-content-between">
+                        <div class="avatar flex-shrink-0">
+                          <img
+                            src="../assets/img/icons/unicons/chart-success.png"
+                            alt="Credit Card"
+                            class="rounded" />
+                        </div>
+                      </div>
+                      <span>Consultas Requisitadas <br> por Pré Marcação</span>
+                      <h3 class="card-title text-nowrap mb-1">{{ $requestedAppointmentTypeTotals['scheduled'] }}</h3>
+                      {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
+                    </div>
+                  </div>
+                </div>
+                <!-- Add more columns as needed -->
+              </div>
+            {{-- Marked Appointments --}}
+
+
               <div class="row">
                 <div class="col-lg-6 mb-4 order-0">
                   <div class="card">
@@ -349,6 +424,45 @@
                   </div>
 
                 {{--/ Total doctors --}}
+
+
+                  {{-- total nurse & patient --}}
+                  <div class="col-lg-3 col-md-4 order-1">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-title d-flex align-items-start justify-content-between">
+                          <div class="avatar flex-shrink-0">
+                            <img
+                              src="../assets/img/icons/unicons/chart-success.png"
+                              alt="Credit Card"
+                              class="rounded" />
+                          </div>
+                        </div>
+                        <span>Quantidade de enfermeiros Registrados no hospital</span>
+                        <h3 class="card-title text-nowrap mb-1">{{ $totalPatient }}</h3>
+                        {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-3 col-md-4 order-1">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-title d-flex align-items-start justify-content-between">
+                          <div class="avatar flex-shrink-0">
+                            <img
+                              src="../assets/img/icons/unicons/chart-success.png"
+                              alt="Credit Card"
+                              class="rounded" />
+                          </div>
+                        </div>
+                        <span>Quantidade de Pacientes Registrados no hospital</span>
+                        <h3 class="card-title text-nowrap mb-1">{{ $totalNurse }}</h3>
+                        {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
+                      </div>
+                    </div>
+                  </div>
+                   {{--/ total nurse & patient --}}
               </div>
             </div>
             @else

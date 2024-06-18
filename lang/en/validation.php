@@ -109,4 +109,21 @@ return [
     'attributes' => [
         // Adicione aqui as traduções dos nomes dos campos, se necessário.
     ],
+    'attributes' => [
+        'name' => 'nome',
+        'email' => 'e-mail',
+        'password' => 'senha',
+        'password_confirmation' => 'confirmação da senha',
+        'birthDay' => 'data de nascimento',
+        'gender' => 'gênero',
+        'bI' => 'bilhete de identidade',
+        'address' => 'endereço',
+        'phone' => 'telefone',
+        'emergencyContact' => 'contato de emergência',
+        'allergies' => 'alergias',
+        'medicines' => 'medicamentos',
+        'bloodType' => 'tipo sanguíneo',
+        'specialty' => 'especialidade',
+        'nurse' => 'enfermeiro',
+    ],
 ];

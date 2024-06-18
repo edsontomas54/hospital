@@ -13,6 +13,17 @@ class ViewAppointment extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+
+    public function changeStatus($id){
+        $appointment = MakeAppointment::find($id);
+        if($appointment->status == Status::requested){
+            $appointment->status = Status::rejected;
+            $appointment->save();
+
+            toastr()->success("Pedido Cancelado");
+        }
+
+    }
     public function render()
     {
         $user = Auth::user();

@@ -83,7 +83,8 @@
                                         <a class="dropdown-item" href="{{route('user.appointment.edit',['appointment_OID'=> $makeAppointment->id])}}"
                                             ><i class="bx bx-trash me-1"></i> Editar</a
                                             >
-                                    </div>
+                                            <button type="button" class="btn" wire:click.prevent='changeStatus({{ $makeAppointment->id }})'>Cancelar</button>
+                                        </div>
                                     </div>
                                     @endif
                                   </td>

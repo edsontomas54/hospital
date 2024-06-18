@@ -15,6 +15,9 @@ class Dashboard extends Component
     public $deletedDoctorCount;
     public $totalDoctorCount;
     public $totalsAuthDoctor =[];
+    public $totalPatient =0;
+    public $totalNurse =0;
+
     public function logout()
     {
         Auth::logout();
@@ -26,7 +29,20 @@ class Dashboard extends Component
 
     public function render()
     {
+        //Marked
+        $requestedAppointments = MakeAppointment::where('status',Status::requested)->get();
 
+        $requestedAppointmentTypeTotals = [
+            'urgent' => $requestedAppointments->where('appointment_type', 'urgent')->count(),
+            'scheduled' => $requestedAppointments->where('appointment_type', 'scheduled')->count(),
+            'walk_in' => $requestedAppointments->where('appointment_type', 'walk_in')->count(),
+        ];
+
+        $this->totalPatient = User::where('role', RoleEnum::PATIENT)->count();
+
+        $this->totalNurse = User::where('role', RoleEnum::NURSE)->count();
+
+        //Concluded
         $appointments = MakeAppointment::where('status',Status::concluded)->get();
 
         $statusTotals = [
@@ -88,7 +104,8 @@ class Dashboard extends Component
 
         $user = Auth::user();
         return view('livewire.admin.dashboard', compact('user',
-        'statusTotals', 'appointmentTypeTotals', 'specialtyTotals','appointments','doctorsTotals'
+        'statusTotals', 'appointmentTypeTotals', 'specialtyTotals','appointments',
+        'doctorsTotals','requestedAppointmentTypeTotals','requestedAppointments'
         ))->layout(config('livewire.layoutAdmin'));
     }
 }

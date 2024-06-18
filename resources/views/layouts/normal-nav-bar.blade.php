@@ -27,7 +27,7 @@
           <li><a href="#">Drop Down 4</a></li>
         </ul> --}}
       {{-- </li> --}}
-      <li><a class="nav-link scrollto" href="#contact">Contacte-nos</a></li>
+      <li><a class="nav-link scrollto" href="/#contact">Contacte-nos</a></li>
     </ul>
     <i class="bi bi-list mobile-nav-toggle"></i>
 </nav><!-- .navbar -->
