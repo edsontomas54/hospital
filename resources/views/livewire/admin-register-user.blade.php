@@ -152,7 +152,7 @@
                 <div id="doctorFields" style="display: none;">
                     <div class="mb-3">
                         <label class="form-label" for="specialty">Especialidade médica</label>
-                        <select id="specialty" class="form-control form-select" wire:model='Introduza Especialidade'>
+                        <select id="specialty" class="form-control form-select" wire:model='specialty'>
                             <option value="">Selecione o Tipo</option>
                             @foreach ($specialties as $spec)
                             <option value="{{Specialty::getKey($spec)}}">{{Specialty::getPortugueseLabel($spec)}}</option>
@@ -165,7 +165,7 @@
                 <div id="nurseFields" style="display: none;">
                     <div class="mb-3">
                         <label class="form-label" for="nurse">Especialidade do Enfermeiro</label>
-                        <select id="nurse" class="form-control form-select" wire:model='Introduza Especialidade'>
+                        <select id="nurse" class="form-control form-select" wire:model='nurse'>
                             <option value="">Selecione o Tipo</option>
                             @foreach($nurseSpecialties as $specialty)
                             <option value="{{ NurseSpecialtyEnum::getKey($specialty) }}">{{ NurseSpecialtyEnum::getPortugueseLabel($specialty) }}</option>
