@@ -44,7 +44,8 @@ class ViewAppointmentComponent extends Component
             $walkInAppointments = MakeAppointment::where('appointment_type', AppointmentType::walk_in)
                 ->where('status','!=', Status::concluded)
                 ->with('user')
-                ->orderBy('created_at', 'DESC')
+                ->orderBy('appointment_date', 'ASC')
+                ->orderBy('preferred_time', 'ASC')
                 ->get();
 
             $appointments = $urgentAppointments->merge($scheduledAppointments)->merge($walkInAppointments);
@@ -52,7 +53,8 @@ class ViewAppointmentComponent extends Component
             // Fetch concluded appointments and merge them at the end
             $concludedAppointments = MakeAppointment::where('status', Status::concluded)
                 ->with('user')
-                ->orderBy('created_at', 'DESC')
+                ->orderBy('appointment_date', 'ASC')
+                ->orderBy('preferred_time', 'ASC')
                 ->get();
 
             $appointments = $appointments->merge($concludedAppointments);

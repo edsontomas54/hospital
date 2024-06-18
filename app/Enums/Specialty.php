@@ -32,7 +32,7 @@ final class Specialty extends Enum
             Self::Psychologist => 'Psicólogo',
             Self::GeneralPractitioner => 'Clínico geral',
             Self::Obstetrician => 'Obstetra',
-            Self::Prenatal => 'Consulta pré-natal',
+            // Self::Prenatal => 'Consulta pré-natal',
         ];
 
         return $translations[$key] ?? $key;

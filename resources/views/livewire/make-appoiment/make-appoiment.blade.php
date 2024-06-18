@@ -8,8 +8,6 @@
           </div>
 
           <form wire:submit.prevent="submit" class="php-email-form">
-            
-
             <div class="row">
                 <div class="col-md-4 form-group">
                     <label for="name">Nome Completo</label>
@@ -21,7 +19,20 @@
                     <input type="text" wire:model="bi_number" class="form-control" id="bi_number" placeholder="EX: 11xxxxxxx954A">
                     @error('bi_number') <span class="error">{{ $message }}</span> @enderror
                 </div>
-                <div class="col-md-4 form-group mt-3 mt-md-0">
+                <div class="col-md-4 form-group mt-3-md-0">
+                    <label for="gender">Gênero</label>
+                    <select wire:model="gender" id="gender" class="form-select">
+                        <option value="">Selecionar Gênero</option>
+                        <option value="male">Masculino</option>
+                        <option value="female">Feminino</option>
+                    </select>
+                    {{-- @error('gender') <span class="error">{{ $message }}</span> @enderror --}}
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 form-group mt-3 ">
                     <label for="appointment_date">Data da Consulta</label>
                     <input type="date" wire:model="appointment_date" class="form-control" id="appointment_date"
                     min="{{ date('Y-m-d') }}"
@@ -30,9 +41,6 @@
                     oninput="this.setCustomValidity('')"
                     >
                 </div>
-            </div>
-
-            <div class="row">
                 {{-- start time perferece --}}
                 {{-- <div class="col-md-4 form-group mt-3">
                     <label for="preferred_time">Horário Preferencial</label>
@@ -76,18 +84,6 @@
                         <option value="Prenatal" class="female-only" disabled>Consulta pré-natal</option>
                     </select>
                     {{-- @error('specialty') <span class="error">{{ $message }}</span> @enderror --}}
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4 form-group mt-3">
-                    <label for="gender">Gênero</label>
-                    <select wire:model="gender" id="gender" class="form-select">
-                        <option value="">Selecionar Gênero</option>
-                        <option value="male">Masculino</option>
-                        <option value="female">Feminino</option>
-                    </select>
-                    {{-- @error('gender') <span class="error">{{ $message }}</span> @enderror --}}
                 </div>
             </div>
 

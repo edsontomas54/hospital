@@ -116,7 +116,7 @@ return [
         'password_confirmation' => 'confirmação da senha',
         'birthDay' => 'data de nascimento',
         'gender' => 'gênero',
-        'bI' => 'bilhete de identidade',
+        'bI' => 'Número de BI',
         'address' => 'endereço',
         'phone' => 'telefone',
         'emergencyContact' => 'contato de emergência',
@@ -125,5 +125,13 @@ return [
         'bloodType' => 'tipo sanguíneo',
         'specialty' => 'especialidade',
         'nurse' => 'enfermeiro',
+        'bi_number' => 'Número de BI',
+        'appointment_date' => 'Data da Consulta',
+        'preferred_time' => 'Horário Preferencial',
+        'appointment_type' => 'Tipo de Consulta',
+        'specialty' => 'Especialidade',
+        'message' => 'Descrição do Motivo da Consulta',
+
+
     ],
 ];

@@ -85,11 +85,11 @@
                   </div>
                   <div class="mb-3">
                     <label for="phone" class="form-label">Contacto</label>
-                    <input wire:model='phone' type="text" class="form-control" id="phone" name="phone" placeholder="Introduza o contacto" />
+                    <input wire:model='phone' type="number" class="form-control" id="phone" name="phone" placeholder="Introduza o contacto" />
                   </div>
                   <div class="mb-3">
                     <label for="emergencyContact" class="form-label">Contacto de Emergência</label>
-                    <input wire:model='emergencyContact' type="text" class="form-control" id="emergencyContact" name="emergencyContact" placeholder="Introduza um contacto de Emergência" />
+                    <input wire:model='emergencyContact' type="number" class="form-control" id="emergencyContact" name="emergencyContact" placeholder="Introduza um contacto de Emergência" />
                   </div>
                   <div class="mb-3">
                     <label for="email" class="form-label">Email*</label>
