@@ -27,9 +27,46 @@ class ViewAppointment extends Component
     public function render()
     {
         $user = Auth::user();
-        $makeAppointments =  MakeAppointment::where('user_id',$user->id)->orderBY
-        ('created_at','desc')->paginate(6);
+        // $makeAppointments =  MakeAppointment::where('user_id',$user->id)
+        // ->orderBy('appointment_date', 'ASC')
+        // ->orderBy('preferred_time', 'ASC')
+        // ->paginate(6);
 
+        $urgentAppointments = MakeAppointment::where('appointment_type', AppointmentType::urgent)
+        ->where('user_id',$user->id)
+        ->where('status','!=', Status::concluded)
+        ->with('user')
+        ->orderBy('appointment_date', 'ASC')
+        ->orderBy('preferred_time', 'ASC')
+        ->get();
+
+        $scheduledAppointments = MakeAppointment::where('appointment_type', AppointmentType::scheduled)
+        ->where('user_id',$user->id)
+        ->where('status','!=', Status::concluded)
+        ->with('user')
+        ->orderBy('appointment_date', 'ASC')
+        ->orderBy('preferred_time', 'ASC')
+        ->get();
+
+        $walkInAppointments = MakeAppointment::where('appointment_type', AppointmentType::walk_in)
+        ->where('user_id',$user->id)
+        ->where('status','!=', Status::concluded)
+        ->with('user')
+        ->orderBy('appointment_date', 'ASC')
+        ->orderBy('preferred_time', 'ASC')
+        ->get();
+
+         $appointments = $urgentAppointments->merge($scheduledAppointments)->merge($walkInAppointments);
+
+         $concludedAppointments = MakeAppointment::where('status', Status::concluded)
+         ->with('user')
+         ->orderBy('appointment_date', 'ASC')
+         ->orderBy('preferred_time', 'ASC')
+         ->get();
+
+         $appointments = $appointments->merge($concludedAppointments);
+
+         $makeAppointments = $appointments->paginate(8);
         return view('livewire.user.view-appointments',compact('makeAppointments',))
         ->layout(config('livewire.layoutUser'));
     }

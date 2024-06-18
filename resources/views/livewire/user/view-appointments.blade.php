@@ -78,7 +78,8 @@
                                     </button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item text-danger"  href="#"
-                                        >so pode baixar a senha de atendimento no estado Marcada</a
+                                        >Só poderá levantar a senha de atendimento quando a consulta estiver em estado marcado.
+                                        </a
                                         >
                                         <a class="dropdown-item" href="{{route('user.appointment.edit',['appointment_OID'=> $makeAppointment->id])}}"
                                             ><i class="bx bx-trash me-1"></i> Editar</a
