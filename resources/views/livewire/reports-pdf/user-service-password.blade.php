@@ -38,17 +38,17 @@
         <p>Ministerio de Saúde</p>
         <p>Centro de Saúde São Dâmaso
         </p>
+        <p style="margin-top: 5px first-item">Senha de atendimento</p>
 
     </div>
 
     <div class="table">
         <div class="container">
-            <p style="margin-top: 5px first-item">Senha de atendimento- PDF</p>
             <div class="box-context">
                 <p class="first-item">Estado: <span>{{$status}}</span></p>
                 <p class="first-item">Nome do paciente: <span>{{$appointment->user->name}}</span></p>
                 <p>Número de BI: <span>{{$appointment->user->bI}}</span></p>
-                <p>Senha de atendimento- PDF: <span>{{$key}}</span></p>
+                <p>Código da senha de atendimento: <span>{{$key}}</span></p>
                 <p>Nome do Médico: <span>{{$appointment->doctor->name}}</span></p>
                 <p>Data da Consulta: <span>{{$appointment->appointment_date}}</span></p>
                 <p>Horário: <span>{{$time}}</span></p>
