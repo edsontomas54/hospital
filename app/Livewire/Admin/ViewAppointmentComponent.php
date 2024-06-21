@@ -76,9 +76,11 @@ class ViewAppointmentComponent extends Component
         //     'text' => $text,
         // ])->layout(config('livewire.layoutAdmin'));
 
+        $states = Status::getValues();
+
         $appointments =  $appointments->paginate(8);
 
-        return view('livewire.admin.view-appointments-component',compact('appointments','text'))->layout(config('livewire.layoutAdmin'));
+        return view('livewire.admin.view-appointments-component',compact('appointments','text','states'))->layout(config('livewire.layoutAdmin'));
     }
 
     // Helper function to paginate a Laravel Collection

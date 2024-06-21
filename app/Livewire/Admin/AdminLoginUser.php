@@ -32,12 +32,12 @@ class AdminLoginUser extends Component
 
         if (Auth::attempt($credentials)) {
             // Authentication successful
-            toastr()->success( 'Login success.');
+            toastr()->success( 'Login feito com ucesso','Sucesso');
             return redirect()->to('/admin/dashboard'); // Redirect to dashboard or intended page
         }
 
         // Authentication failed
-        toastr()->error( 'Invalid email or password.');
+        toastr()->error( 'E-mail ou senha inválida.','Erro de Autenticação');
     }
 
     public function render()

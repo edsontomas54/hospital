@@ -12,7 +12,7 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
-        toastr()->error(" You have no Permission loggin","No Permission");
+        toastr()->error(" Você não tem registro de permissão ","Sem Permissão");
         return $request->expectsJson() ? null : route('admin.login');
     }
 }

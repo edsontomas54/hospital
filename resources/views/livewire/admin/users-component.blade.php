@@ -28,7 +28,7 @@
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body">
-                          <h5 class="card-title text-primary">{{"Todos"}}</h5>
+                          <h5 class="card-title text-primary">{{"Todos Usuários"}}</h5>
                           <p class="mb-4"><span class="fw-medium">{{$users->total()}}</span>
                           </p>
 
@@ -90,7 +90,7 @@
                                     <button class="dropdown-item" href="#"
                                      onclick="deleteConfirmation({{$user->id}})"
                                       >
-                                      <i class="bx bx-trash me-1"></i> Delete</button>
+                                      <i class="bx bx-trash me-1"></i> Deletar</button>
                                   </div>
                                 </div>
                               </td>

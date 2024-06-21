@@ -85,7 +85,7 @@
 
           @if (Auth::user()->is_admin)
           <li class="menu-item">
-              <a href="{{route('admin.view.users')}}" class="menu-link" target="_blank">
+              <a href="{{route('admin.view.users')}}" class="menu-link">
                   <div data-i18n="Basic">Usuarios</div>
               </a>
           </li>
@@ -93,12 +93,12 @@
 
           @if (Auth::user()->is_admin || Auth::user()->role != "DOCTOR")
             <li class="menu-item">
-            <a href="{{route('admin.login')}}" class="menu-link" target="_blank">
+            <a href="{{route('admin.login')}}" class="menu-link">
                 <div data-i18n="Basic">Entrar</div>
             </a>
             </li>
             <li class="menu-item">
-            <a href="{{route('admin.register')}}" class="menu-link" target="_blank">
+            <a href="{{route('admin.register')}}" class="menu-link">
                 <div data-i18n="Basic">Registar</div>
             </a>
             </li>

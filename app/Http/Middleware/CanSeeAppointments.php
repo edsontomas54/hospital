@@ -22,7 +22,7 @@ class CanSeeAppointments
             return $next($request);
         }
 
-        toastr()->error(" You have no Permission log in as Admin or Nurse","No Permission");
+        toastr()->error(" Você não tem permissão de login como administrador ou enfermeiro","No Permission");
         return redirect('/');
     }
 }
