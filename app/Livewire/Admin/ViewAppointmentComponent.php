@@ -13,15 +13,22 @@ use Livewire\WithPagination;
 class ViewAppointmentComponent extends Component
 {
     use WithPagination;
+    public $state="all";
 
     public $urgentAppointments;
     protected $paginationTheme = 'bootstrap';
+
+    public function filterByState($state)
+    {
+        $this->state =$state;
+    }
 
     public function render()
     {
         $text = "";
         $user = Auth::user();
 
+        if($this->state =="all"){
 
         if ($user->role != RoleEnum::DOCTOR) {
             $text = "Total de Marcações!";
@@ -68,6 +75,52 @@ class ViewAppointmentComponent extends Component
             $text = "Total de Consultas alocadas a si!";
         }
 
+    }else{
+        if ($user->role != RoleEnum::DOCTOR) {
+            $text = "Total de Marcações!";
+            // Fetch and sort appointments
+            $urgentAppointments = MakeAppointment::where('appointment_type', AppointmentType::urgent)
+                ->where('status','=',$this->state)
+                ->with('user')
+                ->orderBy('appointment_date', 'ASC')
+                ->orderBy('preferred_time', 'ASC')
+                ->get();
+
+            $scheduledAppointments = MakeAppointment::where('appointment_type', AppointmentType::scheduled)
+                ->where('status','=', $this->state)
+                ->with('user')
+                ->orderBy('appointment_date', 'ASC')
+                ->orderBy('preferred_time', 'ASC')
+                ->get();
+
+            $walkInAppointments = MakeAppointment::where('appointment_type', AppointmentType::walk_in)
+                ->where('status','=', $this->state)
+                ->with('user')
+                ->orderBy('appointment_date', 'ASC')
+                ->orderBy('preferred_time', 'ASC')
+                ->get();
+
+            $appointments = $urgentAppointments->merge($scheduledAppointments)->merge($walkInAppointments);
+
+            // Fetch concluded appointments and merge them at the end
+            $concludedAppointments = MakeAppointment::where('status', $this->state)
+                ->with('user')
+                ->orderBy('appointment_date', 'ASC')
+                ->orderBy('preferred_time', 'ASC')
+                ->get();
+
+            $appointments = $appointments->merge($concludedAppointments);
+        } elseif ($user->role == RoleEnum::DOCTOR) {
+            $appointments = MakeAppointment::where('doctor_id', $user->id)
+                ->where('status', $this->state)
+                ->with('user')
+                ->orderBy('appointment_date', 'ASC')
+                ->orderBy('preferred_time', 'ASC')
+                ->get();
+            $text = "Total de Consultas alocadas a si!";
+        }
+    }
+
         // Paginate the merged collection
         // $paginatedAppointments = $this->paginateCollection($appointments, 6);
 
@@ -77,6 +130,10 @@ class ViewAppointmentComponent extends Component
         // ])->layout(config('livewire.layoutAdmin'));
 
         $states = Status::getValues();
+
+        if($appointments->isEmpty()){
+            toastr()->warning("Nenhum dado foi encontrado","Aviso");
+        }
 
         $appointments =  $appointments->paginate(8);
 

@@ -49,18 +49,20 @@
 
                                 <!-- Contextual Classes -->
                                 <div class="card mt-5 ">
-                                    <d class="col-md-6 d-flex align-items-center p-3">
+                                    <div class="col-md-6 d-flex align-items-center p-3">
                                         <h5 class="card-header">Marcações</h5>
                                         <div class="m">
                                             <label for="">Filtrar Pelo Estado</label>
-                                            <select class="form-select" aria-label="Default select example">
+                                            <select class="form-select" aria-label="Default select example" wire:model='state'
+                                                wire:change="filterByState($event.target.value)"
+                                            >
                                                 <option value="all">Todos</option>
                                                 @foreach ($states as $state)
                                                 <option value="{{$state}}">{{Status::getPortugueseLabel($state)}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
-                                    </d>
+                                    </div>
                                     <div class="table-responsive text-nowrap">
                                         <table class="table">
                                             <thead>
