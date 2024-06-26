@@ -140,16 +140,16 @@ class ViewAppointmentComponent extends Component
         //currently working version
         if($this->state =="all"){
         $appointments = MakeAppointment::with('user')
-            ->orderByRaw('CASE WHEN appointment_type = ? THEN 0 ELSE 1 END', [AppointmentType::urgent])
             ->orderBy('appointment_date', 'ASC')
-            ->orderByRaw('CASE WHEN appointment_type = ? THEN 0 ELSE 1 END, preferred_time', [AppointmentType::urgent])
+            ->orderByRaw('CASE WHEN appointment_type = ? THEN 0 ELSE 1 END', [AppointmentType::urgent])
+            ->orderBy('preferred_time', 'ASC')
             ->paginate(8);
         }else{
             $appointments = MakeAppointment::with('user')
             ->where('status', $this->state)
-            ->orderByRaw('CASE WHEN appointment_type = ? THEN 0 ELSE 1 END', [AppointmentType::urgent])
             ->orderBy('appointment_date', 'ASC')
-            ->orderByRaw('CASE WHEN appointment_type = ? THEN 0 ELSE 1 END, preferred_time', [AppointmentType::urgent])
+            ->orderByRaw('CASE WHEN appointment_type = ? THEN 0 ELSE 1 END', [AppointmentType::urgent])
+            ->orderBy('preferred_time', 'ASC')
             ->paginate(8);
         }
 
