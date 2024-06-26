@@ -66,16 +66,16 @@ class ViewAppointment extends Component
 
          $appointments = $appointments->merge($concludedAppointments);
 
-
             //currently working version
-           { $makeAppointments = MakeAppointment::with('user')
+           $makeAppointments = MakeAppointment::with('user')
+                ->where('user_id',$user->id)
                 ->orderBy('appointment_date', 'ASC')
                 ->orderByRaw('CASE WHEN appointment_type = ? THEN 0 ELSE 1 END', [AppointmentType::urgent])
                 ->orderBy('preferred_time', 'ASC')
                 ->paginate(8);
-            }
 
-            $makeAppointments = $appointments->paginate(8);
+
+            // $makeAppointments = $appointments->paginate(8);
 
         return view('livewire.user.view-appointments',compact('makeAppointments',))
         ->layout(config('livewire.layoutUser'));
