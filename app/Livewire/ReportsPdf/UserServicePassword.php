@@ -52,7 +52,7 @@ class UserServicePassword extends Component
 
 
         $hour = Carbon::createFromFormat('H:i:s',$appointment->preferred_time)->format('H');
-        $minute = Carbon::createFromFormat('H:i:s',$appointment->preferred_time)->format('H');
+        $minute = Carbon::createFromFormat('H:i:s',$appointment->preferred_time)->format('i');
 
         $time = $hour . "h:" .$minute;
 

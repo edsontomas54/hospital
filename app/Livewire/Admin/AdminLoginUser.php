@@ -32,7 +32,7 @@ class AdminLoginUser extends Component
 
         if (Auth::attempt($credentials)) {
             // Authentication successful
-            toastr()->success( 'Login feito com ucesso','Sucesso');
+            toastr()->success( 'Login feito com Sucesso','Sucesso');
             return redirect()->to('/admin/dashboard'); // Redirect to dashboard or intended page
         }
 
