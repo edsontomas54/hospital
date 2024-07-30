@@ -81,7 +81,7 @@
                                                 @foreach ($appointments as $appointment)
                                                     <tr class="{{ $appointment->status == Status::concluded ? 'bg-info' : '' }}">
                                                         <td>{{$appointment->name}}</td>
-                                                        <td><span class="fw-medium">{{$appointment->user->bI}}</span></td>
+                                                        <td><span class="fw-medium">{{$appointment->bi_number}}</span></td>
                                                         <td>{{$appointment->appointment_date}}</td>
                                                         <td>{{ \Carbon\Carbon::createFromFormat('H:i:s', $appointment->preferred_time)->format('H') }}h:{{ \Carbon\Carbon::createFromFormat('H:i:s', $appointment->preferred_time)->format('i') }}</td>
                                                         <td><span class="me-1">{{AppointmentType::getPortugueseLabel($appointment->appointment_type)}}</span></td>

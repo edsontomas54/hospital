@@ -27,7 +27,7 @@
 
                 <p class="mb-4  text-center">Recuperar a senha</p>
 
-                <form id="formAuthentication" class="mb-3" action="index.html" wire:submit.prevent="resetPassword">
+                <form id="formAuthentication" class="mb-3" wire:submit.prevent="resetPassword">
                   <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input
