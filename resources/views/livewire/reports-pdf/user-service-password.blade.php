@@ -47,7 +47,7 @@
             <div class="box-context">
                 <p class="first-item">Estado: <span>{{$status}}</span></p>
                 <p class="first-item">Nome do paciente: <span>{{$appointment->name}}</span></p>
-                <p>Número de BI: <span>{{$appointment->user->bI}}</span></p>
+                <p>Número de BI: <span>{{$appointment->bi_number}}</span></p>
                 <p>Código da senha de atendimento: <span>{{$key}}</span></p>
                 <p>Nome do Médico: <span>{{$appointment->doctor->name}}</span></p>
                 <p>Data da Consulta: <span>{{$appointment->appointment_date}}</span></p>
