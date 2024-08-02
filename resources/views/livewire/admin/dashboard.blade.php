@@ -439,7 +439,7 @@
                           </div>
                         </div>
                         <span>Quantidade de enfermeiros Registrados no hospital</span>
-                        <h3 class="card-title text-nowrap mb-1">{{ $totalPatient }}</h3>
+                        <h3 class="card-title text-nowrap mb-1">{{ $totalNurse }}</h3>
                         {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                       </div>
                     </div>
@@ -457,7 +457,7 @@
                           </div>
                         </div>
                         <span>Quantidade de Pacientes Registrados no hospital</span>
-                        <h3 class="card-title text-nowrap mb-1">{{ $totalNurse }}</h3>
+                        <h3 class="card-title text-nowrap mb-1">{{ $totalPatient }}</h3>
                         {{-- <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +28.42%</small> --}}
                       </div>
                     </div>
