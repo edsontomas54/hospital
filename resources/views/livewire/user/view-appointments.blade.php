@@ -47,7 +47,7 @@
                                 <tr>
                                     <td>{{$makeAppointment->name}}</td>
                                   <td>
-                                    <span class="fw-medium">{{$makeAppointment->user->bI}}</span>
+                                    <span class="fw-medium">{{$makeAppointment->bi_number}}</span>
                                   </td>
                                   <td>
                                     {{$makeAppointment->appointment_date}}
